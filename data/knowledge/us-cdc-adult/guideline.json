@@ -1,0 +1,107 @@
+{
+  "id": "us-cdc-adult",
+  "jurisdiction": "US",
+  "name": "CDC Adult Immunization Schedule (ages 19 and older)",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "version": "Addendum updated July 2, 2025",
+  "effective_from": "2025-07-02",
+  "effective_to": null,
+  "last_verified": "2026-09-25",
+  "population": {
+    "min_age_years": 19,
+    "description": "Adults aged 19 and older"
+  },
+  "scope_note": "Covers routine and risk-based adult vaccinations for influenza, Td/Tdap, hepatitis B, MMR, varicella, recombinant zoster, HPV and pneumococcal disease. COVID-19, RSV, hepatitis A, meningococcal, mpox and travel vaccines are not assessed in this version.",
+  "status_note": "US federal vaccine guidance changed during 2025 and 2026, and some changes are subject to legal proceedings. Rules follow the schedule CDC publishes, as checked on the date shown.",
+  "flu_season_start": { "month": 7, "day": 1, "note": "App convention: a dose given on or after 1 July counts for that season." },
+  "sources": [
+    {
+      "id": "cdc-adult-schedule",
+      "name": "Adult Immunization Schedule by Age",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/vaccines/hcp/imz-schedules/adult-age.html",
+      "published": "2025-07-02",
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "cdc-adult-notes",
+      "name": "Adult Immunization Schedule Notes",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/vaccines/hcp/imz-schedules/adult-notes.html",
+      "published": "2025-07-02",
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "cdc-adult-appendix",
+      "name": "Adult Immunization Schedule Appendix: Contraindications and Precautions",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/vaccines/hcp/imz-schedules/adult-appendix.html",
+      "published": "2025-07-02",
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "cdc-vis-influenza",
+      "name": "Inactivated Influenza Vaccine Information Statement",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/vaccines/hcp/current-vis/influenza-inactivated.html",
+      "published": "2025-01-31",
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "cdc-vis-tdap",
+      "name": "Tdap Vaccine Information Statement",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/vaccines/hcp/current-vis/tdap.html",
+      "published": "2025-01-31",
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "cdc-vis-hepb",
+      "name": "Hepatitis B Vaccine Information Statement",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/vaccines/hcp/current-vis/hepatitis-b.html",
+      "published": "2025-01-31",
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "cdc-vis-mmr",
+      "name": "MMR Vaccine Information Statement",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/vaccines/hcp/current-vis/mmr.html",
+      "published": "2025-01-31",
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "cdc-vis-varicella",
+      "name": "Varicella (Chickenpox) Vaccine Information Statement",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/vaccines/hcp/current-vis/varicella.html",
+      "published": "2025-01-31",
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "cdc-vis-rzv",
+      "name": "Recombinant Zoster (Shingles) Vaccine Information Statement",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/vaccines/hcp/current-vis/shingles.html",
+      "published": "2022-02-04",
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "cdc-vis-hpv",
+      "name": "HPV Vaccine Information Statement",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/vaccines/hcp/current-vis/hpv.html",
+      "published": "2021-08-06",
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "cdc-vis-pcv",
+      "name": "Pneumococcal Conjugate Vaccine Information Statement",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/vaccines/hcp/current-vis/pneumococcal-conjugate.html",
+      "published": "2025-05-29",
+      "retrieved_at": "2026-09-25"
+    }
+  ]
+}

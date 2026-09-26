@@ -1,0 +1,156 @@
+{
+  "id": "mmr",
+  "name": "Measles, mumps and rubella vaccine (MMR)",
+  "short_name": "MMR",
+  "protects_against": "Measles, mumps and rubella",
+  "live": true,
+  "immune_when": {
+    "id": "US-MMR-IMMUNE",
+    "when": { "fact": "immunity_mmr", "is": true },
+    "reason": "You told us a healthcare professional or blood test confirmed you're immune to measles, mumps and rubella.",
+    "source": "cdc-adult-notes",
+    "section": "Measles, mumps, and rubella vaccination: evidence of immunity"
+  },
+  "indications": [
+    {
+      "id": "US-MMR-HCP-1957",
+      "status": "RECOMMENDED",
+      "when": {
+        "all": [
+          { "fact": "healthcare_personnel", "is": true },
+          { "fact": "birth_year", "gte": 1957 }
+        ]
+      },
+      "reason": "Healthcare workers born in 1957 or later without evidence of immunity should have 2 doses of MMR at least 4 weeks apart.",
+      "factors": ["occupation", "age"],
+      "source": "cdc-adult-notes",
+      "section": "Measles, mumps, and rubella vaccination: Special situations (healthcare personnel)",
+      "doses_required": 2
+    },
+    {
+      "id": "US-MMR-STUDENT-TRAVEL",
+      "status": "RECOMMENDED",
+      "when": {
+        "all": [
+          { "fact": "student_traveler_contact", "is": true },
+          { "fact": "birth_year", "gte": 1957 }
+        ]
+      },
+      "reason": "Students after high school, international travellers, and close contacts of people with weakened immune systems should have 2 doses of MMR if they don't have evidence of immunity.",
+      "factors": ["occupation", "age"],
+      "source": "cdc-adult-notes",
+      "section": "Measles, mumps, and rubella vaccination: Special situations",
+      "doses_required": 2
+    },
+    {
+      "id": "US-MMR-ROUTINE",
+      "status": "RECOMMENDED",
+      "when": { "fact": "birth_year", "gte": 1957 },
+      "reason": "Adults born in 1957 or later without evidence of immunity to measles, mumps or rubella need at least 1 dose of MMR.",
+      "factors": ["age"],
+      "source": "cdc-adult-notes",
+      "section": "Measles, mumps, and rubella vaccination: Routine vaccination",
+      "doses_required": 1
+    },
+    {
+      "id": "US-MMR-HCP-PRE1957",
+      "status": "MAY_BE_APPROPRIATE",
+      "when": {
+        "all": [
+          { "fact": "healthcare_personnel", "is": true },
+          { "fact": "birth_year", "lt": 1957 }
+        ]
+      },
+      "reason": "Being born before 1957 usually counts as evidence of immunity, but for healthcare workers a 2-dose MMR series should be considered.",
+      "factors": ["occupation", "age"],
+      "source": "cdc-adult-notes",
+      "section": "Measles, mumps, and rubella vaccination: Special situations (healthcare personnel)",
+      "doses_required": 2
+    }
+  ],
+  "not_indicated_reason": "Being born before 1957 counts as evidence of immunity to measles, mumps and rubella for most adults.",
+  "series": {
+    "kind": "series",
+    "doses": [
+      { "n": 1 },
+      { "n": 2, "min_after_prev_days": 28, "rec_after_prev_days": 28 }
+    ]
+  },
+  "contraindications": [
+    {
+      "id": "US-MMR-CI-ANAPHYLAXIS",
+      "when": {
+        "any": [
+          { "prior_reaction": "anaphylaxis", "after": ["mmr"] },
+          { "component_allergy": [] }
+        ]
+      },
+      "text": "A severe allergic reaction (such as anaphylaxis) after a previous dose, or to a vaccine ingredient.",
+      "source": "cdc-adult-appendix",
+      "section": "Measles, mumps, rubella (MMR)"
+    },
+    {
+      "id": "US-MMR-CI-IMMUNODEFICIENCY",
+      "when": { "fact": "severe_immunodeficiency", "is": true },
+      "text": "Severe immunodeficiency, for example from blood or solid tumours, chemotherapy, long-term immunosuppressive treatment, a congenital immunodeficiency, or severely weakened immunity from HIV. MMR is a live vaccine.",
+      "source": "cdc-adult-appendix",
+      "section": "Measles, mumps, rubella (MMR)"
+    },
+    {
+      "id": "US-MMR-CI-FAMILY",
+      "when": { "fact": "family_immunodeficiency", "is": true },
+      "text": "A family history of immune system problems, unless your own immune system has been confirmed as normal by a clinician or test.",
+      "source": "cdc-adult-appendix",
+      "section": "Measles, mumps, rubella (MMR)"
+    },
+    {
+      "id": "US-MMR-CI-PREGNANCY",
+      "kind": "defer",
+      "when": { "fact": "pregnant", "is": true },
+      "text": "Pregnancy. MMR should not be given during pregnancy. If you're not immune to rubella, one dose is recommended after the pregnancy.",
+      "source": "cdc-adult-notes",
+      "section": "Measles, mumps, and rubella vaccination: Special situations (pregnancy)"
+    }
+  ],
+  "precautions": [
+    {
+      "id": "US-MMR-PR-BLOOD",
+      "when": { "fact": "recent_blood_product", "is": true },
+      "text": "Receiving an antibody-containing blood product in the last 11 months.",
+      "source": "cdc-adult-appendix",
+      "section": "Measles, mumps, rubella (MMR)"
+    },
+    {
+      "id": "US-MMR-PR-PLATELETS",
+      "when": { "fact": "thrombocytopenia", "is": true },
+      "text": "A history of low platelet count (thrombocytopenia or thrombocytopenic purpura).",
+      "source": "cdc-adult-appendix",
+      "section": "Measles, mumps, rubella (MMR)"
+    },
+    {
+      "id": "US-MMR-PR-ILLNESS",
+      "when": { "fact": "current_illness", "is": true },
+      "text": "A moderate or severe illness right now, with or without fever.",
+      "source": "cdc-adult-appendix",
+      "section": "Measles, mumps, rubella (MMR)"
+    }
+  ],
+  "content": {
+    "disease": "Measles causes fever, cough, runny nose and red, watery eyes, commonly followed by a rash. Mumps causes fever, headache, muscle aches, tiredness, loss of appetite and swollen, tender salivary glands. Rubella causes fever, sore throat, rash, headache and eye irritation.",
+    "why": "Adults without evidence of immunity can catch and spread these infections. Rubella during pregnancy can harm the baby, so immunity before pregnancy matters.",
+    "who": "Adults born in 1957 or later without evidence of immunity. Two doses for healthcare workers, students after high school, international travellers and close contacts of people with weakened immune systems.",
+    "doses_text": "One or two doses, at least 4 weeks apart, depending on your situation.",
+    "catch_up": "Written records of MMR doses, a blood test showing immunity, or (for most adults) being born before 1957 count as evidence of immunity.",
+    "common_reactions": [
+      "Sore arm or redness where the shot was given",
+      "Fever",
+      "A mild rash"
+    ],
+    "serious_reactions": [
+      "Seizures, often linked to fever",
+      "A temporary low platelet count, which can cause unusual bleeding or bruising",
+      "A severe allergic reaction is very rare."
+    ],
+    "sources": ["cdc-vis-mmr", "cdc-adult-notes", "cdc-adult-appendix"]
+  }
+}

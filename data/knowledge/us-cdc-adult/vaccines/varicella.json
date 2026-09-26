@@ -1,0 +1,124 @@
+{
+  "id": "varicella",
+  "name": "Chickenpox vaccine (varicella)",
+  "short_name": "Chickenpox",
+  "protects_against": "Chickenpox (varicella)",
+  "live": true,
+  "immune_when": {
+    "id": "US-VAR-IMMUNE",
+    "when": { "fact": "immunity_varicella", "is": true },
+    "reason": "You told us a healthcare professional diagnosed you with chickenpox or shingles, or a blood test showed you're immune.",
+    "source": "cdc-adult-notes",
+    "section": "Varicella vaccination: evidence of immunity"
+  },
+  "indications": [
+    {
+      "id": "US-VAR-1980",
+      "status": "RECOMMENDED",
+      "when": { "fact": "birth_year", "gte": 1980 },
+      "reason": "Adults born in 1980 or later without evidence of immunity to chickenpox should have 2 doses, 4 to 8 weeks apart.",
+      "factors": ["age"],
+      "source": "cdc-adult-notes",
+      "section": "Varicella vaccination: Routine vaccination"
+    },
+    {
+      "id": "US-VAR-PRE1980-HIGHER-RISK",
+      "status": "RECOMMENDED",
+      "when": {
+        "all": [
+          { "fact": "birth_year", "lt": 1980 },
+          { "fact": "healthcare_personnel", "is": true }
+        ]
+      },
+      "reason": "Being born in the US before 1980 is not accepted as evidence of immunity for healthcare workers. Without other evidence, 2 doses are recommended.",
+      "factors": ["occupation", "age"],
+      "source": "cdc-adult-notes",
+      "section": "Varicella vaccination: evidence of immunity"
+    },
+    {
+      "id": "US-VAR-PRE1980",
+      "status": "MAY_BE_APPROPRIATE",
+      "when": { "fact": "birth_year", "lt": 1980 },
+      "reason": "Being born in the US before 1980 usually counts as evidence of immunity. If you were born outside the US, or aren't sure you've had chickenpox, ask whether you need the vaccine.",
+      "factors": ["age"],
+      "source": "cdc-adult-notes",
+      "section": "Varicella vaccination: evidence of immunity"
+    }
+  ],
+  "series": {
+    "kind": "series",
+    "doses": [
+      { "n": 1 },
+      { "n": 2, "min_after_prev_days": 28, "rec_after_prev_days": 28, "rec_latest_after_prev_days": 56 }
+    ]
+  },
+  "contraindications": [
+    {
+      "id": "US-VAR-CI-ANAPHYLAXIS",
+      "when": {
+        "any": [
+          { "prior_reaction": "anaphylaxis", "after": ["varicella"] },
+          { "component_allergy": [] }
+        ]
+      },
+      "text": "A severe allergic reaction (such as anaphylaxis) after a previous dose, or to a vaccine ingredient.",
+      "source": "cdc-adult-appendix",
+      "section": "Varicella (VAR)"
+    },
+    {
+      "id": "US-VAR-CI-IMMUNODEFICIENCY",
+      "when": { "fact": "severe_immunodeficiency", "is": true },
+      "text": "Severe immunodeficiency, for example from blood or solid tumours, chemotherapy, long-term immunosuppressive treatment, a congenital immunodeficiency, or severely weakened immunity from HIV. Chickenpox vaccine is a live vaccine.",
+      "source": "cdc-adult-appendix",
+      "section": "Varicella (VAR)"
+    },
+    {
+      "id": "US-VAR-CI-PREGNANCY",
+      "kind": "defer",
+      "when": { "fact": "pregnant", "is": true },
+      "text": "Pregnancy. Chickenpox vaccine should not be given during pregnancy.",
+      "source": "cdc-adult-appendix",
+      "section": "Varicella (VAR)"
+    }
+  ],
+  "precautions": [
+    {
+      "id": "US-VAR-PR-BLOOD",
+      "when": { "fact": "recent_blood_product", "is": true },
+      "text": "Receiving an antibody-containing blood product in the last 11 months.",
+      "source": "cdc-adult-appendix",
+      "section": "Varicella (VAR)"
+    },
+    {
+      "id": "US-VAR-PR-ANTIVIRAL",
+      "when": { "fact": "antivirals_24h", "is": true },
+      "text": "Taking acyclovir, famciclovir or valacyclovir in the 24 hours before vaccination.",
+      "source": "cdc-adult-appendix",
+      "section": "Varicella (VAR)"
+    },
+    {
+      "id": "US-VAR-PR-ILLNESS",
+      "when": { "fact": "current_illness", "is": true },
+      "text": "A moderate or severe illness right now, with or without fever.",
+      "source": "cdc-adult-appendix",
+      "section": "Varicella (VAR)"
+    }
+  ],
+  "content": {
+    "disease": "Chickenpox causes an itchy rash that usually lasts about a week. It can also cause fever, tiredness, loss of appetite and headache.",
+    "why": "Adults who haven't had chickenpox or the vaccine can still catch it, and it can be more serious in adults.",
+    "who": "Adults born in 1980 or later without evidence of immunity. Healthcare workers need evidence of immunity regardless of birth year.",
+    "doses_text": "Two doses, 4 to 8 weeks apart.",
+    "catch_up": "If you had only one dose, you need the second dose. You don't need to restart.",
+    "common_reactions": [
+      "Sore arm where the shot was given",
+      "Redness or rash where the shot was given",
+      "Fever"
+    ],
+    "serious_reactions": [
+      "More serious reactions are very rare. They can include pneumonia, infection of the brain or spinal cord covering, or seizures.",
+      "A severe allergic reaction is very rare."
+    ],
+    "sources": ["cdc-vis-varicella", "cdc-adult-notes", "cdc-adult-appendix"]
+  }
+}

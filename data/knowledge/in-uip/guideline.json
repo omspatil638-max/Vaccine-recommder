@@ -1,0 +1,50 @@
+{
+  "id": "in-uip",
+  "jurisdiction": "IN",
+  "name": "National Immunization Schedule, Universal Immunization Programme",
+  "publisher": "Ministry of Health and Family Welfare (MoHFW), National Health Mission",
+  "version": "National Immunization Schedule (NHM, as published)",
+  "effective_from": "2018-01-01",
+  "effective_to": null,
+  "last_verified": "2026-09-25",
+  "population": {
+    "pregnant_only": true,
+    "description": "Pregnant women (the national schedule also covers infants and children, which this app does not assess)"
+  },
+  "scope_note": "India's national public-programme schedule covers infants, children, adolescents and pregnant women. It does not set a routine schedule for other adults, so this app only assesses Td vaccination in pregnancy for India.",
+  "status_note": "The published schedule document is undated. The Td for pregnant women schedule follows the earlier TT schedule, as MoHFW states in its Td FAQ.",
+  "sources": [
+    {
+      "id": "mohfw-nis",
+      "name": "National Immunization Schedule",
+      "publisher": "MoHFW / National Health Mission",
+      "url": "https://nhm.gov.in/New_Updates_2018/NHM_Components/Immunization/report/National_%20Immunization_Schedule.pdf",
+      "published": null,
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "mohfw-nis-vaccinewise",
+      "name": "National Immunization Schedule for Infants, Children and Pregnant Women (vaccine-wise)",
+      "publisher": "MoHFW / National Health Mission",
+      "url": "https://www.nhm.gov.in/New_Updates_2018/NHM_Components/Immunization/report/National_Immunization_Schedule_old.pdf",
+      "published": null,
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "mohfw-td-faq",
+      "name": "Tetanus and adult diphtheria (Td) vaccine: Frequently Asked Questions",
+      "publisher": "MoHFW / National Health Mission",
+      "url": "https://nhm.gov.in/New_Updates_2018/NHM_Components/Immunization/Guildelines_for_immunization/Td_vaccine_FAQs.pdf",
+      "published": null,
+      "retrieved_at": "2026-09-25"
+    },
+    {
+      "id": "cdc-vis-tdap",
+      "name": "Tdap Vaccine Information Statement (used only for descriptions of the diseases and common reactions)",
+      "publisher": "CDC (United States)",
+      "url": "https://www.cdc.gov/vaccines/hcp/current-vis/tdap.html",
+      "published": "2025-01-31",
+      "retrieved_at": "2026-09-25"
+    }
+  ]
+}

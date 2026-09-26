@@ -1,0 +1,101 @@
+{
+  "id": "zoster",
+  "name": "Shingles vaccine (recombinant zoster, RZV)",
+  "short_name": "Shingles",
+  "protects_against": "Shingles (herpes zoster) and the long-term nerve pain it can cause",
+  "live": false,
+  "indications": [
+    {
+      "id": "US-RZV-50",
+      "status": "RECOMMENDED",
+      "when": { "fact": "age_years", "gte": 50 },
+      "reason": "Two doses of the recombinant shingles vaccine are recommended for all adults aged 50 and older.",
+      "factors": ["age"],
+      "source": "cdc-adult-notes",
+      "section": "Zoster vaccination: Routine vaccination"
+    },
+    {
+      "id": "US-RZV-IMMUNOCOMPROMISED",
+      "status": "RECOMMENDED",
+      "when": {
+        "all": [
+          { "fact": "age_years", "gte": 19 },
+          { "fact": "immunocompromised", "is": true }
+        ]
+      },
+      "reason": "Adults aged 19 and older with a weakened immune system (from a condition or treatment) are recommended 2 doses of the recombinant shingles vaccine.",
+      "factors": ["age", "condition"],
+      "source": "cdc-adult-notes",
+      "section": "Zoster vaccination: Special situations (immunocompromising conditions)"
+    }
+  ],
+  "not_indicated_reason": "The shingles vaccine is routinely recommended from age 50, or earlier for people with a weakened immune system.",
+  "series": {
+    "kind": "series",
+    "doses": [
+      { "n": 1 },
+      { "n": 2, "min_after_prev_days": 28, "rec_after_prev_days": 60, "rec_latest_after_prev_days": 180 }
+    ],
+    "note": "The second dose is usually 2 to 6 months after the first. People with weakened immunity may be offered it 1 to 2 months after."
+  },
+  "contraindications": [
+    {
+      "id": "US-RZV-CI-ANAPHYLAXIS",
+      "when": {
+        "any": [
+          { "prior_reaction": "anaphylaxis", "after": ["zoster"] },
+          { "component_allergy": [] }
+        ]
+      },
+      "text": "A severe allergic reaction (such as anaphylaxis) after a previous dose, or to a vaccine ingredient.",
+      "source": "cdc-adult-appendix",
+      "section": "Zoster recombinant vaccine (RZV)"
+    },
+    {
+      "id": "US-RZV-DEFER-PREGNANCY",
+      "kind": "defer",
+      "when": { "fact": "pregnant", "is": true },
+      "text": "Pregnancy. There is currently no recommendation for the shingles vaccine in pregnancy, and CDC suggests considering waiting until after pregnancy.",
+      "source": "cdc-adult-notes",
+      "section": "Zoster vaccination: Special situations (pregnancy)"
+    }
+  ],
+  "precautions": [
+    {
+      "id": "US-RZV-PR-CURRENT-ZOSTER",
+      "when": { "fact": "current_shingles", "is": true },
+      "text": "A current episode of shingles.",
+      "source": "cdc-adult-appendix",
+      "section": "Zoster recombinant vaccine (RZV)"
+    },
+    {
+      "id": "US-RZV-PR-ILLNESS",
+      "when": { "fact": "current_illness", "is": true },
+      "text": "A moderate or severe illness right now, with or without fever.",
+      "source": "cdc-adult-appendix",
+      "section": "Zoster recombinant vaccine (RZV)"
+    }
+  ],
+  "content": {
+    "disease": "Shingles causes a painful skin rash, usually with blisters. It can lead to long-term nerve pain, called postherpetic neuralgia, which can last for months or years.",
+    "why": "The risk of shingles and its complications rises with age and with a weakened immune system.",
+    "who": "All adults aged 50 and older, and adults aged 19 and older with a weakened immune system.",
+    "doses_text": "Two doses, usually 2 to 6 months apart.",
+    "catch_up": "If more than 6 months have passed since your first dose, you don't need to restart. Get the second dose as soon as you can.",
+    "common_reactions": [
+      "A sore arm with mild or moderate pain (very common)",
+      "Redness or swelling where the shot was given",
+      "Feeling tired",
+      "Muscle pain",
+      "Headache",
+      "Shivering or fever",
+      "Stomach pain or nausea"
+    ],
+    "reactions_duration": "These usually go away on their own in 2 to 3 days.",
+    "serious_reactions": [
+      "Guillain-Barré syndrome (GBS), a serious nervous system disorder, has been reported very rarely after this vaccine.",
+      "A severe allergic reaction is very rare."
+    ],
+    "sources": ["cdc-vis-rzv", "cdc-adult-notes", "cdc-adult-appendix"]
+  }
+}

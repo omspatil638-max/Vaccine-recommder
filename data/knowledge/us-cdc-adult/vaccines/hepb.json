@@ -1,0 +1,96 @@
+{
+  "id": "hepb",
+  "name": "Hepatitis B vaccine",
+  "short_name": "Hepatitis B",
+  "protects_against": "Hepatitis B, a liver infection",
+  "live": false,
+  "indications": [
+    {
+      "id": "US-HEPB-19-59",
+      "status": "RECOMMENDED",
+      "when": { "fact": "age_years", "gte": 19, "lt": 60 },
+      "reason": "Hepatitis B vaccination is routinely recommended for adults aged 19 to 59.",
+      "factors": ["age"],
+      "source": "cdc-adult-notes",
+      "section": "Hepatitis B vaccination: Routine vaccination"
+    },
+    {
+      "id": "US-HEPB-60-RISK",
+      "status": "RECOMMENDED",
+      "when": {
+        "all": [
+          { "fact": "age_years", "gte": 60 },
+          {
+            "any": [
+              { "condition": ["chronic_liver_disease", "hiv", "chronic_kidney_disease"] },
+              { "fact": "healthcare_personnel", "is": true }
+            ]
+          }
+        ]
+      },
+      "reason": "Adults aged 60 and older with known risk factors for hepatitis B should get the vaccine series. You reported a risk factor.",
+      "factors": ["age", "condition", "occupation"],
+      "source": "cdc-adult-notes",
+      "section": "Hepatitis B vaccination: Routine vaccination (age 60 years or older)"
+    },
+    {
+      "id": "US-HEPB-60-NORISK",
+      "status": "MAY_BE_APPROPRIATE",
+      "when": { "fact": "age_years", "gte": 60 },
+      "reason": "Adults aged 60 and older without known risk factors may get the hepatitis B series, and anyone this age who asks for it should get it. This app only checks some risk factors, so it's worth discussing.",
+      "factors": ["age"],
+      "source": "cdc-adult-notes",
+      "section": "Hepatitis B vaccination: Routine vaccination (age 60 years or older)"
+    }
+  ],
+  "series": {
+    "kind": "series",
+    "doses": [
+      { "n": 1 },
+      { "n": 2, "min_after_prev_days": 28, "rec_after_prev_days": 30 },
+      { "n": 3, "min_after_prev_days": 56, "min_after_first_days": 112, "rec_after_first_days": 180 }
+    ],
+    "note": "This is the common 3-dose schedule (0, 1 and 6 months). Some hepatitis B vaccines use 2 or 4 doses. The product your provider uses decides the exact schedule."
+  },
+  "contraindications": [
+    {
+      "id": "US-HEPB-CI-ANAPHYLAXIS",
+      "when": {
+        "any": [
+          { "prior_reaction": "anaphylaxis", "after": ["hepb"] },
+          { "component_allergy": ["yeast"] }
+        ]
+      },
+      "text": "A severe allergic reaction (such as anaphylaxis) after a previous dose, or to a vaccine ingredient, including yeast.",
+      "source": "cdc-adult-appendix",
+      "section": "Hepatitis B (HepB)"
+    }
+  ],
+  "precautions": [
+    {
+      "id": "US-HEPB-PR-ILLNESS",
+      "when": { "fact": "current_illness", "is": true },
+      "text": "A moderate or severe illness right now, with or without fever.",
+      "source": "cdc-adult-appendix",
+      "section": "Hepatitis B (HepB)"
+    }
+  ],
+  "content": {
+    "disease": "Hepatitis B is a liver disease that can cause mild illness lasting a few weeks, or it can lead to a serious, lifelong illness.",
+    "why": "The vaccine series prevents hepatitis B infection and the long-term liver disease it can cause.",
+    "who": "Adults aged 19 to 59. Adults 60 and older with risk factors, and any adult 60 or older who wants it.",
+    "doses_text": "Usually 3 doses over 6 months. Some vaccines use 2 doses one month apart.",
+    "catch_up": "If you started a series and didn't finish, you don't need to restart. The remaining doses can be given.",
+    "common_reactions": [
+      "Soreness where the shot was given",
+      "Fever",
+      "Headache",
+      "Feeling tired"
+    ],
+    "serious_reactions": [
+      "People sometimes faint after medical procedures, including vaccination.",
+      "A severe allergic reaction is very rare."
+    ],
+    "sources": ["cdc-vis-hepb", "cdc-adult-notes", "cdc-adult-appendix"]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "id": "pneumococcal",
+  "name": "Pneumococcal vaccine",
+  "short_name": "Pneumococcal",
+  "protects_against": "Pneumococcal disease, including pneumonia, meningitis and bloodstream infections",
+  "live": false,
+  "indications": [
+    {
+      "id": "US-PNEUMO-50",
+      "status": "RECOMMENDED",
+      "when": { "fact": "age_years", "gte": 50 },
+      "reason": "Adults aged 50 and older who haven't had a pneumococcal conjugate vaccine are recommended one dose.",
+      "factors": ["age"],
+      "source": "cdc-adult-notes",
+      "section": "Pneumococcal vaccination: Routine vaccination (age 50 years or older)"
+    },
+    {
+      "id": "US-PNEUMO-19-49-RISK",
+      "status": "RECOMMENDED",
+      "when": {
+        "all": [
+          { "fact": "age_years", "gte": 19, "lt": 50 },
+          {
+            "any": [
+              {
+                "condition": [
+                  "chronic_heart_disease",
+                  "chronic_lung_disease",
+                  "chronic_liver_disease",
+                  "chronic_kidney_disease",
+                  "diabetes",
+                  "smoker",
+                  "cochlear_implant",
+                  "asplenia",
+                  "sickle_cell",
+                  "hiv"
+                ]
+              },
+              { "fact": "immunocompromised", "is": true }
+            ]
+          }
+        ]
+      },
+      "reason": "Adults aged 19 to 49 with certain conditions are recommended pneumococcal vaccination. You reported one of these conditions.",
+      "factors": ["age", "condition"],
+      "source": "cdc-adult-notes",
+      "section": "Pneumococcal vaccination: Special situations (age 19–49 years with risk conditions)"
+    }
+  ],
+  "not_indicated_reason": "Pneumococcal vaccination is routine from age 50, or earlier for people with certain health conditions. You didn't report any of those conditions.",
+  "series": {
+    "kind": "pneumococcal",
+    "doses": [{ "n": 1 }],
+    "complete_products": ["pcv20", "pcv21"],
+    "note": "One dose of PCV20 or PCV21 completes vaccination. If you get PCV15, a PPSV23 dose follows later. If you've had other pneumococcal vaccines, the next step depends on which ones."
+  },
+  "contraindications": [
+    {
+      "id": "US-PNEUMO-CI-ANAPHYLAXIS",
+      "when": {
+        "any": [
+          { "prior_reaction": "anaphylaxis", "after": ["pneumococcal"] },
+          { "component_allergy": [] }
+        ]
+      },
+      "text": "A severe allergic reaction (such as anaphylaxis) after a previous dose, or to a vaccine ingredient.",
+      "source": "cdc-adult-appendix",
+      "section": "Pneumococcal conjugate (PCV15, PCV20, PCV21)"
+    }
+  ],
+  "precautions": [
+    {
+      "id": "US-PNEUMO-PR-ILLNESS",
+      "when": { "fact": "current_illness", "is": true },
+      "text": "A moderate or severe illness right now, with or without fever.",
+      "source": "cdc-adult-appendix",
+      "section": "Pneumococcal conjugate (PCV15, PCV20, PCV21)"
+    }
+  ],
+  "content": {
+    "disease": "Pneumococcal bacteria can cause pneumonia (lung infection), ear and sinus infections, meningitis (infection of the covering of the brain and spinal cord), and bloodstream infections.",
+    "why": "The risk of serious pneumococcal disease is higher from age 50 and for people with certain long-term conditions.",
+    "who": "All adults aged 50 and older, and adults aged 19 to 49 with certain conditions (such as chronic heart, lung, liver or kidney disease, diabetes, smoking, a weakened immune system, or no working spleen).",
+    "doses_text": "Usually one dose of PCV20 or PCV21.",
+    "catch_up": "If you've had older pneumococcal vaccines (PCV13 or PPSV23), a professional can tell you whether you need another dose.",
+    "common_reactions": [
+      "Redness, swelling, pain or tenderness where the shot was given",
+      "Fever",
+      "Loss of appetite",
+      "Tiredness",
+      "Headache",
+      "Muscle or joint aches",
+      "Chills"
+    ],
+    "serious_reactions": ["A severe allergic reaction is very rare."],
+    "sources": ["cdc-vis-pcv", "cdc-adult-notes", "cdc-adult-appendix"]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": "tdap",
+  "name": "Tetanus, diphtheria and whooping cough vaccine (Tdap / Td)",
+  "short_name": "Tdap / Td",
+  "protects_against": "Tetanus, diphtheria and pertussis (whooping cough)",
+  "live": false,
+  "indications": [
+    {
+      "id": "US-TDAP-PREGNANCY",
+      "status": "RECOMMENDED",
+      "when": { "fact": "pregnant", "is": true },
+      "reason": "One dose of Tdap is recommended during each pregnancy, preferably early in weeks 27 to 36, to help protect the newborn from whooping cough.",
+      "factors": ["pregnancy"],
+      "source": "cdc-adult-notes",
+      "section": "Tetanus, diphtheria, and pertussis vaccination: Special situations (pregnancy)",
+      "every_pregnancy": true,
+      "pregnancy_window": { "from_week": 27, "preferred_to_week": 36 }
+    },
+    {
+      "id": "US-TDAP-BOOSTER",
+      "status": "RECOMMENDED",
+      "when": { "fact": "age_years", "gte": 19 },
+      "reason": "Adults need a Td or Tdap booster every 10 years. If you have never had Tdap as an adult or teenager, one dose of Tdap is recommended.",
+      "factors": ["age", "history"],
+      "source": "cdc-adult-notes",
+      "section": "Tetanus, diphtheria, and pertussis vaccination: Routine vaccination"
+    }
+  ],
+  "series": {
+    "kind": "booster",
+    "doses": [{ "n": 1 }],
+    "booster_every_days": 3650
+  },
+  "contraindications": [
+    {
+      "id": "US-TDAP-CI-ANAPHYLAXIS",
+      "when": {
+        "any": [
+          { "prior_reaction": "anaphylaxis", "after": ["tdap"] },
+          { "component_allergy": [] }
+        ]
+      },
+      "text": "A severe allergic reaction (such as anaphylaxis) after a previous dose, or to an ingredient of the vaccine.",
+      "source": "cdc-adult-appendix",
+      "section": "Tdap/Td"
+    },
+    {
+      "id": "US-TDAP-CI-ENCEPHALOPATHY",
+      "when": { "prior_reaction": "encephalopathy_7_days", "after": ["tdap"] },
+      "text": "For Tdap only: encephalopathy (for example coma, reduced consciousness or prolonged seizures) within 7 days of a previous whooping-cough-containing vaccine, not explained by another cause. Td may still be an option; a professional can advise.",
+      "source": "cdc-adult-appendix",
+      "section": "Tdap/Td"
+    }
+  ],
+  "precautions": [
+    {
+      "id": "US-TDAP-PR-GBS",
+      "when": { "prior_reaction": "gbs_6_weeks", "after": ["tdap"] },
+      "text": "Guillain-Barré syndrome within 6 weeks after a previous tetanus-containing vaccine.",
+      "source": "cdc-adult-appendix",
+      "section": "Tdap/Td"
+    },
+    {
+      "id": "US-TDAP-PR-ARTHUS",
+      "when": { "prior_reaction": "arthus", "after": ["tdap"] },
+      "text": "An Arthus-type reaction after a previous tetanus- or diphtheria-containing vaccine. Vaccination is usually deferred until 10 years after the last tetanus-containing dose.",
+      "source": "cdc-adult-appendix",
+      "section": "Tdap/Td"
+    },
+    {
+      "id": "US-TDAP-PR-NEURO",
+      "when": { "fact": "neuro_unstable", "is": true },
+      "text": "For Tdap only: a progressive or unstable neurological disorder, uncontrolled seizures or progressive encephalopathy, until the condition is stable on treatment.",
+      "source": "cdc-adult-appendix",
+      "section": "Tdap/Td"
+    },
+    {
+      "id": "US-TDAP-PR-ILLNESS",
+      "when": { "fact": "current_illness", "is": true },
+      "text": "A moderate or severe illness right now, with or without fever.",
+      "source": "cdc-adult-appendix",
+      "section": "Tdap/Td"
+    }
+  ],
+  "content": {
+    "disease": "Tetanus causes painful stiffening of the muscles. Diphtheria can lead to difficulty breathing, heart failure, paralysis or death. Whooping cough (pertussis) causes uncontrollable, violent coughing that makes it hard to breathe, eat or drink.",
+    "why": "Protection from tetanus and diphtheria fades over time, so adults need a booster every 10 years. During pregnancy, Tdap helps protect the newborn from whooping cough.",
+    "who": "All adults: one Tdap dose if never received as a teen or adult, then Td or Tdap every 10 years. One Tdap dose in every pregnancy.",
+    "doses_text": "One dose every 10 years. One dose in each pregnancy, preferably early in weeks 27 to 36.",
+    "catch_up": "Adults who did not complete a childhood tetanus series need a catch-up series. A professional can advise on the doses.",
+    "common_reactions": [
+      "Pain, redness or swelling where the shot was given",
+      "Mild fever",
+      "Headache",
+      "Feeling tired",
+      "Nausea, vomiting, diarrhoea or stomach ache"
+    ],
+    "serious_reactions": [
+      "People sometimes faint after medical procedures, including vaccination.",
+      "A severe allergic reaction is very rare."
+    ],
+    "sources": ["cdc-vis-tdap", "cdc-adult-notes", "cdc-adult-appendix"]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "td",
+  "name": "Tetanus and adult diphtheria vaccine (Td) in pregnancy",
+  "short_name": "Td (pregnancy)",
+  "protects_against": "Tetanus and diphtheria, in the mother and the newborn",
+  "live": false,
+  "indications": [
+    {
+      "id": "IN-TD-PREGNANCY",
+      "status": "RECOMMENDED",
+      "when": { "fact": "pregnant", "is": true },
+      "reason": "India's national schedule gives Td to pregnant women: Td-1 early in pregnancy and Td-2 four weeks later, or a single booster if you were vaccinated in a pregnancy within the last 3 years.",
+      "factors": ["pregnancy", "location"],
+      "source": "mohfw-nis-vaccinewise",
+      "section": "For pregnant women: TT/Td-1, TT/Td-2, TT/Td booster"
+    }
+  ],
+  "series": {
+    "kind": "pregnancy_td",
+    "doses": [
+      { "n": 1 },
+      { "n": 2, "min_after_prev_days": 28, "rec_after_prev_days": 28 }
+    ],
+    "booster_if_vaccinated_within_days": 1095,
+    "note": "One dose (a booster) is enough if you received Td or TT doses in a pregnancy within the last 3 years."
+  },
+  "contraindications": [],
+  "precautions": [],
+  "safety_note": "The national schedule document does not list contraindications. Tell the health worker about any serious reaction to a previous vaccine or any severe allergy.",
+  "content": {
+    "disease": "Tetanus causes painful stiffening of the muscles. Diphtheria can lead to difficulty breathing, heart failure, paralysis or death.",
+    "why": "Vaccinating during pregnancy protects the mother and the newborn from tetanus and diphtheria.",
+    "who": "Pregnant women, as part of routine antenatal care.",
+    "doses_text": "Td-1 early in pregnancy, Td-2 four weeks after Td-1. Or one booster dose if you were vaccinated in a pregnancy within the last 3 years.",
+    "catch_up": "Td is given free at government health facilities as part of the Universal Immunization Programme. Ask at your antenatal visit.",
+    "common_reactions": [
+      "Pain, redness or swelling where the shot was given",
+      "Mild fever",
+      "Headache",
+      "Feeling tired"
+    ],
+    "serious_reactions": [
+      "People sometimes faint after medical procedures, including vaccination.",
+      "A severe allergic reaction is very rare."
+    ],
+    "sources": ["mohfw-nis", "mohfw-nis-vaccinewise", "mohfw-td-faq", "cdc-vis-tdap"]
+  }
+}

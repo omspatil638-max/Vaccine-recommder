@@ -1,0 +1,180 @@
+SESSION SUMMARY - Vaccination guidance platform redesign
+=======================================================
+Last updated: 2026-09-25
+
+STATUS: ALL 12 PHASES COMPLETE. The website runs end to end.
+  - Backend: 67 automated tests pass (engine rules, full API journey, security).
+  - Frontend: production build passes; lint clean apart from minor style warnings.
+  - Browser: 23-step real-browser journey passes (sign-up -> intake -> assessment ->
+    results -> vaccine pages -> providers -> record dose -> after-care -> schedule ->
+    history -> home -> profile edit -> sign out/in), plus mobile checks at 375 px.
+
+HOW TO RUN
+----------
+Double-click start.bat (opens both servers and the browser), or:
+  Backend:  cd backend  && python -m uvicorn app.main:app --port 8000
+  Frontend: cd frontend && npm run dev          -> http://localhost:5173
+Tests:
+  cd backend  && python -m pytest -q
+  cd frontend && node e2e/journey.mjs           (needs both servers + Microsoft Edge)
+
+DESIGN REVISION 2 (2026-09-25) - Hallmark audit of the rendered app
+-------------------------------------------------------------------
+Method: ran the reference repo's audit checklist (repo_referernce/hallmark: SKILL.md, verbs/audit.md,
+slop-test.md, anti-patterns, macrostructures) against real screenshots, then fixed structure,
+keeping the locked tokens and type. design.md now carries "revision 2" rules.
+Findings fixed:
+- AI-default top nav (wordmark / centred links / account) -> desktop side rail (Today, My vaccines,
+  Find providers, Schedule, History; Record a vaccination; demo marker + Account at the bottom).
+  Mobile keeps the top bar + five-tab bottom bar.
+- Results page had 5 identical blocks each with a filled "Find providers" button -> results ledger:
+  "We checked N vaccines", an index of status groups with counts, 2px rule per group, rows with a
+  margin column (status, timing, text-link actions). One filled button per view.
+- Vaccine pages -> long document + sticky "At a glance" margin column (status, timing, live/not,
+  guideline last checked, Find providers / I've had a dose) shared by Overview, Safety, Schedule.
+- Home "Upcoming" duplicated the due-now list -> "Coming up" shows only what isn't listed already.
+- Providers: boxed demo banner -> one line (demo still marked in chrome and on every provider).
+- Sign-in: added "What a result can say" (the real status vocabulary) in the empty column.
+- Logo: generic cross -> dose-sequence mark (two given, one to come); favicon replaced (was Vite's).
+- Forms: field errors now clear as soon as the field changes (lib/useFieldErrors.js); the step
+  summary clears on the next input. Previously errors stayed under corrected values.
+Verified: production build passes; 23-step browser journey passes with no console errors.
+
+DESIGN REVISION 3 (2026-09-25) - second reference (clean portfolio-style product site)
+--------------------------------------------------------------------------------------
+Principles taken (not layout/colours/copy): confident scale, whitespace, restrained palette,
+one obvious action, vertical storytelling. Combined with the Hallmark method; design.md
+updated ("Journey moments", "Imagery", new typography and colour rules).
+- Type: headings now Manrope 700/800 (fluid 36-56px page titles); body stays Public Sans.
+  Inter/Poppins deliberately avoided (over-used defaults per Hallmark).
+- Palette: brighter off-white paper, navy ink, teal-blue accent; purple "info" and magenta
+  "demo" hues removed (info = ink-blue; demo = slate + dashed outline + label).
+- Sign-in: "Your vaccinations, explained." + one sentence + a four-node "How it works"
+  journey figure; large Sign in button.
+- Intake: larger questions, section titles outrank questions, large Continue, quiet Back,
+  filled progress connectors; severe-allergy answer shows one restrained safety line.
+- Results: outcome headline, "Also: ..." line, unit strip (one mark per vaccine, hover/focus
+  tooltip, legend links to groups), single large primary action.
+- Providers: directory rows (pin, place, availability/cost table, text-link action).
+- Schedule: vertical connected timeline ordered by date.
+- No stock photos: only hand-built, task-linked visuals.
+Verified: build passes; 23-step browser journey passes (full-page and viewport runs).
+
+DESIGN REVISION 4 (2026-09-25) - more colour (user: "the website looks very dull")
+------------------------------------------------------------------------------------
+- New brand surface: deep ocean blue side rail (desktop), top bar (mobile) and a blue
+  feature panel on sign-in ("Your vaccinations, explained." with the last word in aqua).
+- Brighter teal for actions; richer green/amber/red/blue status colours; paper has a
+  visible cool tint.
+- Sky-tinted rounded panels for each page's key moment: result header, Home next step,
+  vaccine "At a glance"; the wizard header is tinted too.
+- Accessibility kept: on the blue surfaces links and focus rings use the light aqua.
+- Solid colour only (no gradients). design.md "Colour" section rewritten.
+
+MULTI-PAGE REBUILD - steps 1-2 done (2026-09-25), waiting for user confirmation before step 3
+---------------------------------------------------------------------------------------------
+Step 1 routing: already real React Router routes; added /safety (safety flags + answers +
+urgent help) and /review (clinical review summary, printable, states no clinician reviewed it;
+no invented sign-off). Nav: Overview, Recommendations, Safety, Clinical review, Find providers,
+Schedule, History (+ Record, Profile). Phones: 5 tabs + Menu. e2e test now loads every page by
+URL and checks Back. The old one-page tab prototype is still at /legacy.
+Step 2 design system: tokens rewritten (colour roles, type roles, 4pt spacing, surfaces, radius,
+z-layers); Surface.jsx building blocks; vaccine category icons; live style guide at
+/design-system. Backend untouched.
+NEXT (needs user OK): step 3 dashboard layering, step 4 visual identity, step 5 show dashboard +
+one detail page.
+
+GOAL
+----
+Turn the dashboard-first prototype into a guided vaccination decision and discovery
+platform: login -> intake wizard -> review -> deterministic assessment -> explained
+recommendations -> vaccine details -> providers/availability/cost -> action ->
+after-care -> reminders/history -> home (overview only).
+
+KEY DECISIONS
+-------------
+- 37 requested phases were compressed into 12; the user asked for no confirmations and no git.
+- Jurisdictions: United States (CDC adult schedule) and India (MoHFW UIP; only Td in
+  pregnancy, because the national programme has no routine schedule for other adults).
+  Other countries get an honest "no guideline" result. Countries are never mixed.
+- Adults only (18+ can sign up; the US schedule covers 19+). Children are out of scope.
+- Medical decisions come from a deterministic, data-driven rule engine. No LLM is used
+  anywhere (the optional "AI explanation" layer was deliberately left out: nothing
+  about it would be verifiable offline, and the rule-based explanations already cover
+  "Why am I seeing this?").
+- Unknown is preserved everywhere: yes / no / not sure; "not sure" never becomes "no";
+  unknown vaccination history -> "More information needed", never "never vaccinated".
+- Precedence (safest first): up to date > contraindication > professional review >
+  more information needed > recommended / may be appropriate.
+- Vaccine ingredient allergies: only components named by the source (yeast for
+  hepatitis B) produce a contraindication. A severe allergy to other possible vaccine
+  ingredients (egg, gelatin, neomycin, polysorbate, latex) sends the vaccine for
+  professional review instead of guessing.
+- Provider/availability/price data is DEMO data, labelled everywhere. No fake booking.
+- Free, local stack: FastAPI + SQLite (SQLModel), React 19 + Vite + Tailwind v4,
+  react-router 7, Leaflet/OpenStreetMap. No paid APIs.
+
+SOURCES VERIFIED (retrieved 2026-09-25)
+---------------------------------------
+- CDC Adult Immunization Schedule by Age, Notes, and Appendix (contraindications and
+  precautions), all "Addendum updated July 2, 2025". US guidance changed during
+  2025-26 and parts are under a legal stay (March 2026); rules follow what CDC
+  currently publishes, and this is stated on the Sources page.
+- CDC Vaccine Information Statements: influenza, Tdap, hepatitis B, MMR, varicella
+  (all 2025-01-31), recombinant zoster (2022-02-04), HPV (2021-08-06), PCV (2025-05-29).
+- India NHM National Immunization Schedule and the vaccine-wise NIS (Td-1 early in
+  pregnancy, Td-2 four weeks later, or one booster if vaccinated within 3 years), and
+  the MoHFW Td FAQ.
+
+WHAT WAS BUILT (by phase)
+-------------------------
+1  Design system (design.md, OKLCH tokens, Source Serif 4 / Public Sans / IBM Plex Mono),
+   layouts, route tree; removed fabricated content (fake "Live review", invented
+   clinicians and licence numbers, pre-signed "verified" banner, invented versions,
+   hidden client-side copy of medical rules).
+2  Auth: sign-up, sign-in, sign-out, forgot/reset password; scrypt hashes; HttpOnly
+   SameSite cookie sessions stored hashed; CSRF double-submit token; login rate limit;
+   generic error messages. Signed-in users resume intake or go home.
+3  Intake: profile (DOB, not age; pregnancy only when relevant), location/jurisdiction
+   (selects the guideline set; optional approximate location to ~1 km), health.
+4  Vaccination history (had it / haven't / not sure per vaccine, doses with exact,
+   month, year or unknown dates, product types), structured safety screening
+   (allergy triage + details, past reaction triage + details, 7 vaccine-specific
+   safety questions), review page with Edit links and "Run vaccination assessment".
+5  Versioned knowledge base: data/knowledge/us-cdc-adult (8 vaccines) and
+   data/knowledge/in-uip (Td in pregnancy); validator refuses rules without sources.
+6  Engine: backend/engine (facts, three-valued logic, series timing, evaluation);
+   49 fixture tests covering ages, jurisdictions, unknowns, allergies, reactions,
+   contraindications, precautions, multi-dose timing, doses given too early,
+   delayed series, pregnancy windows, fail-closed cases.
+7  Results page grouped by status, with "Why am I seeing this?" (factors, guideline
+   basis, source link, rule references), missing-information lists, provenance line.
+8  Vaccine pages: Overview, Safety (expected vs rare reactions, contraindications,
+   reasons to wait, precautions, when to get help, "not proof it caused it" note),
+   Schedule (can I have it now?, dose timeline, interval table, sources).
+9  Providers: list first with optional map, availability states (available / limited /
+   unavailable / not verified / no data) with last-checked dates, cost breakdown
+   (vaccine + service fee = estimated total, or "Price not available"), save provider.
+10 Record a dose -> after-care page; automatic re-assessment; reminders generated
+   from structured timing; schedule page (done / dismiss / custom reminders);
+   history (vaccinations, assessments, saved, change log with field names only).
+11 Home: next action, dose timeline, safety notice, current recommendations,
+   upcoming reminders, recent activity, quick links.
+12 Accessibility (labels, fieldsets, focus rings, 44 px targets, skip links, text +
+   icon statuses), responsive checks, security headers, data export and account
+   deletion, end-to-end browser test, typography and copy polish.
+
+KNOWN LIMITS / SKIPPED
+----------------------
+- No email or push notifications: reminders appear in the app; in demo mode the reset link is shown on screen.
+- No real provider data source or booking integration exists; only labelled demo data.
+- The provider map only appears after the user shares an approximate location; it
+  wasn't covered by the automated test (the test user shares none).
+- Travel vaccines, COVID-19, RSV, hepatitis A, meningococcal and mpox are not assessed
+  in this version (stated on the Sources page).
+- Medical rules should be reviewed by a qualified clinician before any real-world use.
+- SQLite is not encrypted at rest; use disk encryption or a managed database for
+  production, and set COOKIE_SECURE=true behind HTTPS.
+- Old prototype files (frontend/src/pages/*Page.jsx, components/Navbar etc.,
+  rule_engine/) are kept and reachable at /legacy; nothing was deleted without
+  confirmation. App.css and assets/hero.png are unused leftovers.

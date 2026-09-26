@@ -1,0 +1,65 @@
+{
+  "id": "influenza",
+  "name": "Influenza (flu) vaccine",
+  "short_name": "Flu",
+  "protects_against": "Seasonal influenza (flu)",
+  "live": false,
+  "indications": [
+    {
+      "id": "US-FLU-ANNUAL",
+      "status": "RECOMMENDED",
+      "when": { "fact": "age_years", "gte": 19 },
+      "reason": "One flu vaccine every year is recommended for all adults.",
+      "factors": ["age"],
+      "source": "cdc-adult-notes",
+      "section": "Influenza vaccination: Routine vaccination"
+    }
+  ],
+  "series": {
+    "kind": "seasonal",
+    "doses": [{ "n": 1 }]
+  },
+  "contraindications": [
+    {
+      "id": "US-FLU-CI-ANAPHYLAXIS",
+      "when": { "prior_reaction": "anaphylaxis", "after": ["influenza"] },
+      "text": "A severe allergic reaction (such as anaphylaxis) after a previous dose of any flu vaccine.",
+      "source": "cdc-adult-appendix",
+      "section": "Influenza, inactivated injectable (IIV3)"
+    }
+  ],
+  "precautions": [
+    {
+      "id": "US-FLU-PR-GBS",
+      "when": { "prior_reaction": "gbs_6_weeks", "after": ["influenza"] },
+      "text": "Guillain-Barré syndrome within 6 weeks after a previous dose of any flu vaccine.",
+      "source": "cdc-adult-appendix",
+      "section": "Influenza, inactivated injectable (IIV3)"
+    },
+    {
+      "id": "US-FLU-PR-ILLNESS",
+      "when": { "fact": "current_illness", "is": true },
+      "text": "A moderate or severe illness right now, with or without fever.",
+      "source": "cdc-adult-appendix",
+      "section": "Influenza, inactivated injectable (IIV3)"
+    }
+  ],
+  "content": {
+    "disease": "Flu can cause fever and chills, sore throat, muscle aches, tiredness, cough, headache, and a runny or stuffy nose.",
+    "why": "Flu viruses change, and protection fades, so a new dose is recommended every season.",
+    "who": "All adults aged 19 and older. For adults 65 and older, CDC lists high-dose, recombinant or adjuvanted flu vaccines as preferred.",
+    "doses_text": "One dose every flu season.",
+    "catch_up": "If you missed a dose this season, it can still be given while flu is circulating. Ask a pharmacist or clinic.",
+    "common_reactions": [
+      "Soreness, redness or swelling where the shot was given",
+      "Fever",
+      "Muscle aches",
+      "Headache"
+    ],
+    "serious_reactions": [
+      "There may be a very small increased risk of Guillain-Barré syndrome (GBS) after inactivated flu vaccine.",
+      "A severe allergic reaction is very rare."
+    ],
+    "sources": ["cdc-vis-influenza", "cdc-adult-notes", "cdc-adult-appendix"]
+  }
+}

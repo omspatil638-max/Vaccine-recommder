@@ -1,0 +1,85 @@
+{
+  "id": "hpv",
+  "name": "HPV vaccine (human papillomavirus)",
+  "short_name": "HPV",
+  "protects_against": "HPV infections that can cause several cancers and genital warts",
+  "live": false,
+  "indications": [
+    {
+      "id": "US-HPV-THROUGH-26",
+      "status": "RECOMMENDED",
+      "when": { "fact": "age_years", "gte": 19, "lt": 27 },
+      "reason": "HPV vaccination is recommended for everyone through age 26 who hasn't completed the series.",
+      "factors": ["age"],
+      "source": "cdc-adult-notes",
+      "section": "Human papillomavirus vaccination: Routine vaccination"
+    },
+    {
+      "id": "US-HPV-27-45",
+      "status": "MAY_BE_APPROPRIATE",
+      "when": { "fact": "age_years", "gte": 27, "lt": 46 },
+      "reason": "For adults aged 27 to 45, HPV vaccination is a shared decision between you and a healthcare professional.",
+      "factors": ["age"],
+      "source": "cdc-adult-schedule",
+      "section": "HPV: ages 27–45, shared clinical decision-making"
+    }
+  ],
+  "not_indicated_reason": "HPV vaccination is recommended through age 26, and may be discussed from 27 to 45. It isn't part of the schedule after 45.",
+  "series": {
+    "kind": "series",
+    "doses": [
+      { "n": 1 },
+      { "n": 2, "min_after_prev_days": 28, "rec_after_prev_days": 45 },
+      { "n": 3, "min_after_prev_days": 84, "min_after_first_days": 150, "rec_after_first_days": 180 }
+    ],
+    "note": "Adults usually need 3 doses. People who started before their 15th birthday may need only 2; a professional can confirm."
+  },
+  "contraindications": [
+    {
+      "id": "US-HPV-CI-ANAPHYLAXIS",
+      "when": {
+        "any": [
+          { "prior_reaction": "anaphylaxis", "after": ["hpv"] },
+          { "component_allergy": [] }
+        ]
+      },
+      "text": "A severe allergic reaction (such as anaphylaxis) after a previous dose, or to a vaccine ingredient.",
+      "source": "cdc-adult-appendix",
+      "section": "Human papillomavirus (HPV)"
+    },
+    {
+      "id": "US-HPV-DEFER-PREGNANCY",
+      "kind": "defer",
+      "when": { "fact": "pregnant", "is": true },
+      "text": "Pregnancy. HPV vaccination is not recommended until after pregnancy. A pregnancy test isn't needed before vaccination.",
+      "source": "cdc-adult-notes",
+      "section": "Human papillomavirus vaccination: Special situations (pregnancy)"
+    }
+  ],
+  "precautions": [
+    {
+      "id": "US-HPV-PR-ILLNESS",
+      "when": { "fact": "current_illness", "is": true },
+      "text": "A moderate or severe illness right now, with or without fever.",
+      "source": "cdc-adult-appendix",
+      "section": "Human papillomavirus (HPV)"
+    }
+  ],
+  "content": {
+    "disease": "HPV infections can cause cervical, vaginal and vulvar cancers in women, penile cancer in men, and anal and throat cancers in both men and women.",
+    "why": "The vaccine prevents infection with the HPV types that cause most of these cancers. It works best before any exposure to HPV.",
+    "who": "Everyone through age 26. Adults aged 27 to 45 may choose it after discussing it with a healthcare professional.",
+    "doses_text": "Three doses for most adults: the second 1 to 2 months after the first, the third 6 months after the first.",
+    "catch_up": "If you started the series earlier, you don't need to restart. The remaining doses can be given.",
+    "common_reactions": [
+      "Soreness, redness or swelling where the shot was given",
+      "Fever",
+      "Headache"
+    ],
+    "serious_reactions": [
+      "People sometimes faint after medical procedures, including vaccination.",
+      "A severe allergic reaction is very rare."
+    ],
+    "sources": ["cdc-vis-hpv", "cdc-adult-notes", "cdc-adult-appendix"]
+  }
+}

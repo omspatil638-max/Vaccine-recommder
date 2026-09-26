@@ -1,0 +1,119 @@
+{
+  "data_origin": "DEMO",
+  "notice": "Simulated records for demonstrating the interface. These are not real places. Names, locations, hours, availability and prices are invented and must not be used to make decisions.",
+  "last_generated": "2026-09-25",
+  "providers": [
+    {
+      "id": "demo-us-pharmacy-1",
+      "jurisdiction": "US",
+      "name": "Demo Corner Pharmacy",
+      "type": "Pharmacy",
+      "offset_km": [0.8, 0.6],
+      "hours": [["Mon–Fri", "09:00–19:00"], ["Sat", "10:00–16:00"], ["Sun", "Closed"]],
+      "contact": { "phone": null, "website": null },
+      "walk_in": true,
+      "booking": "none",
+      "services": [
+        { "vaccine_id": "influenza", "state": "AVAILABLE", "last_verified": "2026-09-20", "price": { "vaccine": 32.0, "admin_fee": 0.0, "currency": "USD" } },
+        { "vaccine_id": "tdap", "state": "AVAILABLE", "last_verified": "2026-09-20", "price": { "vaccine": 58.0, "admin_fee": 20.0, "currency": "USD" } },
+        { "vaccine_id": "zoster", "state": "LIMITED", "last_verified": "2026-09-18", "price": { "vaccine": 205.0, "admin_fee": 20.0, "currency": "USD" } },
+        { "vaccine_id": "pneumococcal", "state": "NOT_VERIFIED", "last_verified": null, "price": null },
+        { "vaccine_id": "hepb", "state": "AVAILABLE", "last_verified": "2026-09-12", "price": null }
+      ]
+    },
+    {
+      "id": "demo-us-clinic-1",
+      "jurisdiction": "US",
+      "name": "Demo Family Health Clinic",
+      "type": "Primary care clinic",
+      "offset_km": [-1.9, 1.2],
+      "hours": [["Mon–Thu", "08:00–17:00"], ["Fri", "08:00–13:00"], ["Sat–Sun", "Closed"]],
+      "contact": { "phone": null, "website": null },
+      "walk_in": false,
+      "booking": "contact",
+      "services": [
+        { "vaccine_id": "influenza", "state": "AVAILABLE", "last_verified": "2026-09-22", "price": { "vaccine": 28.0, "admin_fee": 25.0, "currency": "USD" } },
+        { "vaccine_id": "hpv", "state": "AVAILABLE", "last_verified": "2026-09-15", "price": { "vaccine": 290.0, "admin_fee": 25.0, "currency": "USD" } },
+        { "vaccine_id": "mmr", "state": "AVAILABLE", "last_verified": "2026-09-15", "price": { "vaccine": 95.0, "admin_fee": 25.0, "currency": "USD" } },
+        { "vaccine_id": "varicella", "state": "UNAVAILABLE", "last_verified": "2026-09-15", "price": null },
+        { "vaccine_id": "hepb", "state": "AVAILABLE", "last_verified": "2026-09-15", "price": { "vaccine": 70.0, "admin_fee": 25.0, "currency": "USD" } },
+        { "vaccine_id": "pneumococcal", "state": "AVAILABLE", "last_verified": "2026-09-15", "price": { "vaccine": 260.0, "admin_fee": 25.0, "currency": "USD" } }
+      ]
+    },
+    {
+      "id": "demo-us-health-dept",
+      "jurisdiction": "US",
+      "name": "Demo County Health Department",
+      "type": "Public health clinic",
+      "offset_km": [3.4, -2.2],
+      "hours": [["Tue & Thu", "09:00–15:00"]],
+      "contact": { "phone": null, "website": null },
+      "walk_in": false,
+      "booking": "contact",
+      "services": [
+        { "vaccine_id": "influenza", "state": "DATA_UNAVAILABLE", "last_verified": null, "price": null },
+        { "vaccine_id": "tdap", "state": "AVAILABLE", "last_verified": "2026-08-30", "price": null },
+        { "vaccine_id": "mmr", "state": "LIMITED", "last_verified": "2026-08-30", "price": null },
+        { "vaccine_id": "hepb", "state": "NOT_VERIFIED", "last_verified": null, "price": null }
+      ]
+    },
+    {
+      "id": "demo-us-travel",
+      "jurisdiction": "US",
+      "name": "Demo Walk-in Care",
+      "type": "Urgent care",
+      "offset_km": [-4.8, -3.1],
+      "hours": [["Every day", "08:00–20:00"]],
+      "contact": { "phone": null, "website": null },
+      "walk_in": true,
+      "booking": "none",
+      "services": [
+        { "vaccine_id": "tdap", "state": "AVAILABLE", "last_verified": "2026-09-24", "price": { "vaccine": 60.0, "admin_fee": 45.0, "currency": "USD" } },
+        { "vaccine_id": "influenza", "state": "AVAILABLE", "last_verified": "2026-09-24", "price": { "vaccine": 35.0, "admin_fee": 45.0, "currency": "USD" } },
+        { "vaccine_id": "zoster", "state": "NOT_VERIFIED", "last_verified": null, "price": null }
+      ]
+    },
+    {
+      "id": "demo-in-phc",
+      "jurisdiction": "IN",
+      "name": "Demo Primary Health Centre",
+      "type": "Government health facility",
+      "offset_km": [1.1, -0.7],
+      "hours": [["Mon–Sat", "09:00–16:00"], ["Sun", "Closed"]],
+      "contact": { "phone": null, "website": null },
+      "walk_in": true,
+      "booking": "none",
+      "services": [
+        { "vaccine_id": "td", "state": "AVAILABLE", "last_verified": "2026-09-21", "price": { "vaccine": 0.0, "admin_fee": 0.0, "currency": "INR", "note": "Demo record. Td is given at government facilities under the Universal Immunization Programme." } }
+      ]
+    },
+    {
+      "id": "demo-in-sc",
+      "jurisdiction": "IN",
+      "name": "Demo Health Sub-Centre",
+      "type": "Government health facility",
+      "offset_km": [-2.3, 1.6],
+      "hours": [["Wed", "10:00–14:00 (immunisation day)"]],
+      "contact": { "phone": null, "website": null },
+      "walk_in": true,
+      "booking": "none",
+      "services": [
+        { "vaccine_id": "td", "state": "LIMITED", "last_verified": "2026-09-10", "price": { "vaccine": 0.0, "admin_fee": 0.0, "currency": "INR" } }
+      ]
+    },
+    {
+      "id": "demo-in-private",
+      "jurisdiction": "IN",
+      "name": "Demo Maternity Clinic",
+      "type": "Private clinic",
+      "offset_km": [3.0, 2.4],
+      "hours": [["Mon–Sat", "10:00–19:00"]],
+      "contact": { "phone": null, "website": null },
+      "walk_in": false,
+      "booking": "contact",
+      "services": [
+        { "vaccine_id": "td", "state": "NOT_VERIFIED", "last_verified": null, "price": null }
+      ]
+    }
+  ]
+}

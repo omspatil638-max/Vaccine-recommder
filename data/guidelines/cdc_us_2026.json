@@ -1,0 +1,70 @@
+{
+  "guideline_id": "CDC_ACIP_US_2026.1",
+  "name": "CDC ACIP Adult & Child Immunization Schedule 2026",
+  "version": "2026.1",
+  "effective_date": "2026-01-01",
+  "country": "USA",
+  "approved_by": "Advisory Committee on Immunization Practices (ACIP)",
+  "rules": [
+    {
+      "rule_id": "RULE-TDAP-PREG-2026",
+      "vaccine_id": "TDAP",
+      "vaccine_name": "Tetanus, Diphtheria, Acellular Pertussis (Tdap)",
+      "category": "Routine & Pregnancy",
+      "trigger_conditions": {
+        "pregnancy_status": ["pregnant_1st_trimester", "pregnant_2nd_trimester", "pregnant_3rd_trimester"]
+      },
+      "status": "due",
+      "reason_code": "PREGNANCY_TDAP_27_36_WEEKS",
+      "reason": "Recommended during weeks 27–36 of each pregnancy to pass maternal antibodies to the infant, regardless of prior Tdap timing.",
+      "evidence_citation": "CDC ACIP Guideline Section 4.2: Administer 1 dose Tdap during each pregnancy, preferably during 27 through 36 weeks of gestation.",
+      "needs_professional_review": true,
+      "review_reason": "Confirm current gestational age with attending OB/GYN before administration."
+    },
+    {
+      "rule_id": "RULE-FLU-ANNUAL-2026",
+      "vaccine_id": "INFLUENZA_SEASONAL",
+      "vaccine_name": "Seasonal Influenza (Inactivated / Recombinant)",
+      "category": "Routine Annual",
+      "trigger_conditions": {
+        "min_age": 0.5
+      },
+      "status": "due",
+      "reason_code": "ANNUAL_SEASONAL_PREGNANCY_HCW",
+      "reason": "Annual seasonal influenza vaccination recommended for all individuals ≥6 months of age, especially during pregnancy or healthcare employment.",
+      "evidence_citation": "CDC ACIP Guideline Section 1.1: Any licensed, age-appropriate inactivated influenza vaccine (IIV4) or recombinant influenza vaccine (RIV4) is indicated.",
+      "needs_professional_review": false,
+      "review_reason": null
+    },
+    {
+      "rule_id": "RULE-HEPB-HCW-CATCHUP-2026",
+      "vaccine_id": "HEP_B",
+      "vaccine_name": "Hepatitis B Vaccine Series",
+      "category": "Occupational & Catch-Up",
+      "trigger_conditions": {
+        "occupation": ["healthcare_worker", "laboratory_personnel"]
+      },
+      "status": "due",
+      "reason_code": "INCOMPLETE_SERIES_HCW_EXPOSURE",
+      "reason": "Healthcare workers are at high risk of bloodborne pathogen exposure. Complete 3-dose series or verify antibody titer.",
+      "evidence_citation": "CDC ACIP Occupational Immunization Guidelines 2026.",
+      "needs_professional_review": true,
+      "review_reason": "Verify prior anti-HBs titer or unrecorded doses at other facilities."
+    },
+    {
+      "rule_id": "RULE-YF-TRAVEL-PREG-2026",
+      "vaccine_id": "YELLOW_FEVER",
+      "vaccine_name": "Yellow Fever Vaccine (Stamaril - Live Attenuated)",
+      "category": "Travel-Related",
+      "trigger_conditions": {
+        "has_travel_destination": true
+      },
+      "status": "potentially_due",
+      "reason_code": "TRAVEL_ENDEMIC_PRECAUTION_PREGNANCY",
+      "reason": "Yellow fever risk exists for travel to endemic countries. Live virus vaccines require risk-benefit evaluation during pregnancy.",
+      "evidence_citation": "CDC Health Information for International Travel (Yellow Book 2026).",
+      "needs_professional_review": true,
+      "review_reason": "Live vaccine caution during pregnancy. Evaluate itinerary risk vs waiver certificate."
+    }
+  ]
+}

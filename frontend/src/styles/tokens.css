@@ -1,0 +1,122 @@
+/* Design tokens — the single source of truth. See /design.md (revision 5) and /design-system.
+ *
+ * Built from concrete values in the Hallmark reference (repo_referernce/hallmark):
+ *   spacing   — the 4pt named scale from layout-and-space.md / examples/tally/tokens.css
+ *   type      — tally's modular scale (12·14·16·18·22·28·40·56), with 13px as our floor
+ *   surfaces  — tally's layered paper (page → card → raised → tint), hairline rules
+ *   radius    — tally's 6 / 12 / 20
+ *   depth     — one "whisper" shadow for cards, one overlay shadow; never stacked
+ *
+ * Colour system (small on purpose):
+ *   PRIMARY    blue-teal family — brand surface (deep) + actions (accent) + tints (sky)
+ *   ATTENTION  amber — the one accent for status and urgency: due now, check first, review
+ *   NEUTRALS   cool greys — ink, paper, rules; all structure
+ *   RESERVED   green = fine to proceed, red = genuine safety issue. Meaning only, never decoration.
+ */
+:root {
+  /* ── Neutrals: structure ─────────────────────────────────────────── */
+  --paper: oklch(98.4% 0.008 215); /* page */
+  --surface: oklch(99.6% 0.003 215); /* card: lifts off the page */
+  --paper-2: oklch(96.2% 0.016 215); /* raised / section band */
+  --paper-3: oklch(93.2% 0.024 215); /* hairline tint, hover */
+  --ink: oklch(23% 0.045 258); /* headings, primary text */
+  --ink-2: oklch(40% 0.04 258); /* body secondary */
+  --ink-3: oklch(50% 0.03 258); /* meta, captions (≥ 4.5:1 on paper) */
+  --rule: oklch(89.5% 0.02 225); /* hairline */
+  --rule-strong: oklch(78% 0.03 235); /* control borders, emphasis rule */
+
+  /* ── Primary: blue-teal family ───────────────────────────────────── */
+  --deep: oklch(30% 0.085 245); /* brand surface: rail, top bar, hero panels */
+  --deep-2: oklch(37% 0.09 243);
+  --deep-3: oklch(44% 0.09 240);
+  --on-deep: oklch(98% 0.01 220);
+  --on-deep-muted: oklch(83% 0.04 225);
+  --accent: oklch(51% 0.13 212); /* actions, links, progress */
+  --accent-hover: oklch(44% 0.125 214);
+  --accent-soft: oklch(94.5% 0.04 210);
+  --accent-bright: oklch(78% 0.13 195); /* only on the deep surface */
+  --on-accent: oklch(99% 0.005 215);
+  --sky: oklch(95% 0.035 225); /* tinted section / feature panel */
+  --sky-strong: oklch(88% 0.06 225);
+  --focus: oklch(58% 0.18 250);
+
+  /* ── Attention: the one status / urgency accent (amber) ──────────── */
+  --caution: oklch(51% 0.13 60); /* text-safe on paper */
+  --caution-soft: oklch(95.5% 0.06 80);
+  --attention: var(--caution);
+  --attention-soft: var(--caution-soft);
+  --attention-fill: oklch(76% 0.15 70); /* marks and dots only, never text */
+
+  /* ── Reserved meaning ────────────────────────────────────────────── */
+  --ok: oklch(49% 0.13 155);
+  --ok-soft: oklch(95% 0.05 155);
+  --stop: oklch(51% 0.19 27);
+  --stop-soft: oklch(95.5% 0.035 27);
+  /* "More information needed" and "not currently indicated" sit in the primary / neutral families */
+  --info: oklch(46% 0.1 240);
+  --info-soft: oklch(95.5% 0.025 240);
+  --neutral: oklch(47% 0.025 258);
+  --neutral-soft: oklch(95% 0.01 258);
+  /* Demo data: neutral slate + dashed outline + the words "Demo data" */
+  --demo: oklch(40% 0.05 258);
+  --demo-soft: oklch(95.8% 0.015 258);
+
+  /* ── Type ────────────────────────────────────────────────────────── */
+  --font-display: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  /* Role → size. One size per role; weights are fixed per role too (see design.md). */
+  --text-xs: 0.8125rem; /* 13 · caption, badge, table meta */
+  --text-sm: 0.875rem; /* 14 · meta, labels, helper text */
+  --text-base: 1rem; /* 16 · body */
+  --text-lg: 1.125rem; /* 18 · lede, questions, card titles */
+  --text-xl: 1.375rem; /* 22 · h3 / item title */
+  --text-2xl: 1.75rem; /* 28 · h2 section title */
+  --text-3xl: 2.5rem; /* 40 · key figure, small page title */
+  --text-4xl: 3.5rem; /* 56 · display ceiling */
+  --text-display: clamp(2.25rem, 1.55rem + 2.2vw, 3.5rem); /* h1: 36 → 56 */
+  --text-statement: clamp(2rem, 1.4rem + 1.9vw, 3rem); /* wizard h1 / result statement: 32 → 48 */
+
+  --lh-tight: 1.08;
+  --lh-snug: 1.2;
+  --lh-body: 1.6;
+  --tracking-display: -0.025em;
+  --tracking-heading: -0.015em;
+
+  --measure: 65ch;
+
+  /* ── Space: 4pt scale, named by step (tally / layout-and-space.md) ─ */
+  --space-3xs: 0.125rem; /*   2 */
+  --space-2xs: 0.25rem; /*   4 */
+  --space-xs: 0.5rem; /*   8 */
+  --space-sm: 0.75rem; /*  12 */
+  --space-md: 1rem; /*  16 */
+  --space-lg: 1.5rem; /*  24 */
+  --space-xl: 2rem; /*  32 */
+  --space-2xl: 3rem; /*  48 */
+  --space-3xl: 5rem; /*  80 */
+  --space-4xl: 8rem; /* 128 */
+
+  /* ── Shape and depth ─────────────────────────────────────────────── */
+  --radius-sm: 6px; /* controls, badges */
+  --radius-md: 12px; /* cards */
+  --radius-lg: 20px; /* feature panels */
+  --shadow-card: 0 1px 2px oklch(30% 0.085 245 / 0.06); /* whisper */
+  --shadow-panel: 0 1px 2px oklch(30% 0.085 245 / 0.06), 0 8px 24px oklch(30% 0.085 245 / 0.07);
+  --shadow-overlay: 0 8px 24px oklch(23% 0.045 258 / 0.14);
+
+  /* Named layers — no freestyle z-index numbers */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 30;
+  --z-nav: 40;
+  --z-overlay: 50;
+
+  /* ── Motion ──────────────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+}

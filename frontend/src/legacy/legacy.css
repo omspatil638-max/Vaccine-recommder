@@ -1,0 +1,19 @@
+/* Styles used only by the legacy screens under /legacy. Removed with them. */
+.legacy-shell {
+  background: #f1f5f9;
+  font-family: var(--font-body);
+}
+
+.hero-panel {
+  background: #0f2a33;
+}
+
+.demo-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  border: 1px dashed currentColor;
+  font-size: 12px;
+  font-weight: 600;
+}
