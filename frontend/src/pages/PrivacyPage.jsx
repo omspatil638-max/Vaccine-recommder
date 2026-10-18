@@ -53,9 +53,9 @@ Recommendation results with reasons and evidence
 User dashboard and professional review`}
           </div>
           <ul className="list-disc list-inside space-y-1.5 text-xs md:text-sm text-gray-700">
-            <li><strong>Rule Engine Authority:</strong> Vaccine eligibility, catch-up schedules, and contraindications are decided 100% deterministically by published CDC ACIP / WHO rulesets.</li>
+            <li><strong>Rule Engine Authority:</strong> Vaccine eligibility, catch-up schedules, and contraindications are decided 100% deterministically by published MoHFW / NTAGI / API / WHO India rulesets.</li>
             <li><strong>LLM Boundary:</strong> Any LLM layer strictly acts as a natural-language explainer of pre-computed rule engine results. An LLM is NEVER allowed to make clinical decisions or infer eligibility.</li>
-            <li><strong>No Hallucinations:</strong> Recommendations strictly cite specific guideline versions (e.g. CDC ACIP 2026.1) and rule IDs.</li>
+            <li><strong>No Hallucinations:</strong> Recommendations strictly cite specific guideline versions (e.g. API Adult Immunization 2026.1) and rule IDs.</li>
           </ul>
         </div>
 

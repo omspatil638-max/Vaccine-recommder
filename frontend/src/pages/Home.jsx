@@ -389,6 +389,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Vaccine Update Reminders CTA */}
+      <section className="mt-14">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-600 to-emerald-600 text-white px-6 sm:px-10 py-9 sm:py-11">
+          <div className="absolute -bottom-16 -left-10 w-56 h-56 rounded-full bg-white/10 blur-3xl" />
+          <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div className="max-w-xl">
+              <div className="inline-flex items-center gap-1.5 bg-white/15 border border-white/25 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                <Sparkles className="w-3.5 h-3.5" />
+                Free email alerts
+              </div>
+              <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold tracking-tight">
+                Get reminded when a new vaccine reaches India
+              </h2>
+              <p className="mt-2 text-teal-50 text-sm leading-relaxed">
+                Subscribe for free and we'll email you when a new adult vaccine becomes available in
+                India or MoHFW / API / WHO India guidance is updated — so you can ask your doctor.
+              </p>
+            </div>
+            <Link
+              to="/reminders"
+              className="shrink-0 inline-flex items-center justify-center gap-2 bg-white text-teal-700 font-bold text-sm px-6 py-3.5 rounded-xl shadow-lg hover:bg-teal-50 transition-colors"
+            >
+              Set up reminders
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Global Clinic Poster QR Code Modal */}
       <ClinicPosterModal
         isOpen={posterModalOpen}

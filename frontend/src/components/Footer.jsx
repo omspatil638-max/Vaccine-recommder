@@ -68,6 +68,11 @@ export default function Footer({ onOpenPoster }) {
             </h4>
             <ul className="space-y-2">
               <li>
+                <Link to="/reminders" className="hover:text-teal-300 transition-colors">
+                  Vaccine Update Reminders
+                </Link>
+              </li>
+              <li>
                 <Link to="/awareness-guide" className="hover:text-teal-300 transition-colors">
                   Awareness Guide Questionnaire
                 </Link>

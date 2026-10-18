@@ -14,6 +14,7 @@ import FaqPage from './pages/FaqPage';
 import AboutPage from './pages/AboutPage';
 import PosterLandingPage from './pages/PosterLandingPage';
 import ClinicPosterPage from './pages/ClinicPosterPage';
+import RemindersPage from './pages/RemindersPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export const router = createBrowserRouter([
@@ -33,6 +34,7 @@ export const router = createBrowserRouter([
       { path: 'doctor-checklist', element: <DoctorChecklistPage /> },
       { path: 'faq', element: <FaqPage /> },
       { path: 'about', element: <AboutPage /> },
+      { path: 'reminders', element: <RemindersPage /> },
       { path: 'poster-landing', element: <PosterLandingPage /> },
       { path: 'categories', element: <PosterLandingPage /> },
       { path: 'clinic-poster', element: <ClinicPosterPage /> },

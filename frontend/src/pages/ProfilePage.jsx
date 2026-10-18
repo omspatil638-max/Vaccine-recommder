@@ -140,11 +140,11 @@ export default function ProfilePage({ profile, onSaveProfile }) {
                 <label className="block text-xs font-semibold text-gray-700 mb-1">Country / Region Guidelines</label>
                 <select
                   name="country"
-                  value={formData.country || 'USA'}
+                  value={formData.country || 'IN'}
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="USA">United States (CDC ACIP Guidelines)</option>
+                  <option value="IN">India (MoHFW / NTAGI / API Guidelines)</option>
                   <option value="WHO">WHO Global Guidelines</option>
                 </select>
               </div>

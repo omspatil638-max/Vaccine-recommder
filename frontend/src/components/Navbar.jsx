@@ -13,7 +13,8 @@ import {
   UserCheck,
   Sparkles,
   QrCode,
-  Share2
+  Share2,
+  BellRing
 } from 'lucide-react';
 import ClinicPosterModal from './ClinicPosterModal';
 
@@ -33,6 +34,7 @@ export default function Navbar() {
   ];
 
   const secondaryNavItems = [
+    { to: '/reminders', label: 'Vaccine Update Reminders', icon: BellRing },
     { to: '/doctor-checklist', label: 'Doctor Visit Checklist', icon: ClipboardList },
     { to: '/faq', label: 'Frequently Asked Questions', icon: HelpCircle },
     { to: '/about', label: 'About SmartVax', icon: Info },
