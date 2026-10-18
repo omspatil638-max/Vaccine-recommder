@@ -15,30 +15,30 @@
  */
 :root {
   /* ── Neutrals: structure ─────────────────────────────────────────── */
-  --paper: oklch(98.4% 0.008 215); /* page */
-  --surface: oklch(99.6% 0.003 215); /* card: lifts off the page */
-  --paper-2: oklch(96.2% 0.016 215); /* raised / section band */
-  --paper-3: oklch(93.2% 0.024 215); /* hairline tint, hover */
-  --ink: oklch(23% 0.045 258); /* headings, primary text */
-  --ink-2: oklch(40% 0.04 258); /* body secondary */
-  --ink-3: oklch(50% 0.03 258); /* meta, captions (≥ 4.5:1 on paper) */
-  --rule: oklch(89.5% 0.02 225); /* hairline */
-  --rule-strong: oklch(78% 0.03 235); /* control borders, emphasis rule */
+  --paper: oklch(98.5% 0 0); /* page */
+  --surface: #ffffff; /* card: lifts off the page */
+  --paper-2: oklch(96.8% 0.001 286); /* raised / section band */
+  --paper-3: oklch(92.8% 0.002 286); /* hairline tint, hover */
+  --ink: oklch(21% 0.006 286); /* headings, primary text */
+  --ink-2: oklch(37% 0.006 286); /* body secondary */
+  --ink-3: oklch(55% 0.006 286); /* meta, captions (≥ 4.5:1 on paper) */
+  --rule: oklch(91% 0.003 286); /* hairline */
+  --rule-strong: oklch(84% 0.004 286); /* control borders, emphasis rule */
 
   /* ── Primary: blue-teal family ───────────────────────────────────── */
-  --deep: oklch(30% 0.085 245); /* brand surface: rail, top bar, hero panels */
-  --deep-2: oklch(37% 0.09 243);
-  --deep-3: oklch(44% 0.09 240);
-  --on-deep: oklch(98% 0.01 220);
-  --on-deep-muted: oklch(83% 0.04 225);
-  --accent: oklch(51% 0.13 212); /* actions, links, progress */
-  --accent-hover: oklch(44% 0.125 214);
-  --accent-soft: oklch(94.5% 0.04 210);
-  --accent-bright: oklch(78% 0.13 195); /* only on the deep surface */
-  --on-accent: oklch(99% 0.005 215);
-  --sky: oklch(95% 0.035 225); /* tinted section / feature panel */
-  --sky-strong: oklch(88% 0.06 225);
-  --focus: oklch(58% 0.18 250);
+  --deep: oklch(21% 0.006 286); /* brand surface: rail, top bar, hero panels */
+  --deep-2: oklch(27% 0.006 286);
+  --deep-3: oklch(34% 0.006 286);
+  --on-deep: oklch(98% 0 0);
+  --on-deep-muted: oklch(72% 0.004 286);
+  --accent: oklch(52% 0.25 265); /* actions, links, progress */
+  --accent-hover: oklch(45% 0.25 265);
+  --accent-soft: oklch(96% 0.03 265);
+  --accent-bright: oklch(72% 0.17 262); /* only on the deep surface */
+  --on-accent: #ffffff;
+  --sky: oklch(97% 0.02 265); /* tinted section / feature panel */
+  --sky-strong: oklch(90% 0.05 265);
+  --focus: oklch(52% 0.25 265);
 
   /* ── Attention: the one status / urgency accent (amber) ──────────── */
   --caution: oklch(51% 0.13 60); /* text-safe on paper */
@@ -62,7 +62,7 @@
   --demo-soft: oklch(95.8% 0.015 258);
 
   /* ── Type ────────────────────────────────────────────────────────── */
-  --font-display: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-data: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
 

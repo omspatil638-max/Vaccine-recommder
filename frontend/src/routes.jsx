@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
+import StartPage from './pages/StartPage';
 import Home from './pages/Home';
 import AgeGroupsPage from './pages/AgeGroupsPage';
 import MensHealthPage from './pages/MensHealthPage';
@@ -18,11 +19,11 @@ import RemindersPage from './pages/RemindersPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export const router = createBrowserRouter([
+  { path: '/', element: <StartPage /> },
   {
-    path: '/',
     element: <Layout />,
     children: [
-      { index: true, element: <Home /> },
+      { path: 'home', element: <Home /> },
       { path: 'age-groups', element: <AgeGroupsPage /> },
       { path: 'age-groups/:group', element: <AgeGroupsPage /> },
       { path: 'mens-health', element: <MensHealthPage /> },
