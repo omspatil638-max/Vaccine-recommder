@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router';
-import { CalendarClock, FlaskConical, History, Home, MapPin, Menu, PenLine, ShieldCheck, Stethoscope, Syringe, UserRound } from 'lucide-react';
+import { Bell, CalendarClock, FlaskConical, History, Home, MapPin, Menu, PenLine, ShieldCheck, Stethoscope, Syringe, UserRound } from 'lucide-react';
 import Wordmark from './Wordmark';
 import SiteFooter from './SiteFooter';
 import { useMeta } from '../lib/useMeta';
+import { api } from '../lib/api';
 
 const NAV = [
   { to: '/home', label: 'Overview', icon: Home, tab: true },
@@ -11,6 +13,7 @@ const NAV = [
   { to: '/review', label: 'Clinical review', icon: Stethoscope },
   { to: '/providers', label: 'Find providers', short: 'Providers', icon: MapPin, tab: true },
   { to: '/schedule', label: 'Schedule', icon: CalendarClock },
+  { to: '/notifications', label: 'Vaccine update alerts', icon: Bell },
   { to: '/history', label: 'History', icon: History, tab: true },
 ];
 
@@ -80,6 +83,22 @@ function MobileMenu() {
 
 export default function AppLayout() {
   const meta = useMeta();
+  const [unreadAlerts, setUnreadAlerts] = useState(0);
+
+  useEffect(() => {
+    let active = true;
+    const checkAlerts = async () => {
+      try {
+        const result = await api.post('/notifications/sync');
+        if (active) setUnreadAlerts(result.unreadCount ?? 0);
+      } catch {
+        // Keep the account shell usable if notification delivery is offline.
+      }
+    };
+    checkAlerts();
+    const interval = window.setInterval(checkAlerts, 5 * 60 * 1000);
+    return () => { active = false; window.clearInterval(interval); };
+  }, []);
 
   return (
     <>
@@ -105,7 +124,8 @@ export default function AppLayout() {
                     <li key={item.to}>
                       <NavLink to={item.to} className={railLink}>
                         <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
-                        <span className="whitespace-nowrap">{item.label}</span>
+                        <span className="flex-1 whitespace-nowrap">{item.label}</span>
+                        {item.to === '/notifications' && unreadAlerts > 0 && <span className="rounded-full bg-accent-bright px-2 py-0.5 text-xs font-bold text-deep" aria-label={`${unreadAlerts} unread`}>{unreadAlerts}</span>}
                       </NavLink>
                     </li>
                   );

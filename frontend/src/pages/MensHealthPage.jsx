@@ -43,7 +43,7 @@ export default function MensHealthPage() {
 
       {/* Header */}
       <div className="max-w-3xl space-y-2">
-        <span className="text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-100 px-2.5 py-0.5 rounded-full">
+        <span className="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-2.5 py-0.5 rounded-full">
           Men's Health Priorities &bull; India
         </span>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -62,7 +62,7 @@ export default function MensHealthPage() {
             className="bg-white border border-slate-200 rounded-3xl p-6 shadow-xs flex flex-col justify-between hover:shadow-md transition-all"
           >
             <div className="space-y-3">
-              <span className="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-teal-100 text-teal-800">
+              <span className="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800">
                 {topic.vaccine}
               </span>
               <h2 className="text-lg font-bold text-slate-900">
@@ -71,7 +71,7 @@ export default function MensHealthPage() {
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 {topic.details}
               </p>
-              <div className="bg-slate-50 border-l-3 border-teal-500 p-3 rounded-r-xl text-xs text-slate-700">
+              <div className="bg-slate-50 border-l-3 border-blue-500 p-3 rounded-r-xl text-xs text-slate-700">
                 <strong>Doctor Discussion Point:</strong> {topic.discussion}
               </div>
             </div>
@@ -79,7 +79,7 @@ export default function MensHealthPage() {
             <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
               <Link
                 to={`/vaccine-library/${topic.vaccineId}`}
-                className="text-xs font-bold text-teal-700 hover:text-teal-900 flex items-center gap-1"
+                className="text-xs font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1"
               >
                 <span>Read detailed vaccine guide</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -101,7 +101,7 @@ export default function MensHealthPage() {
         </div>
         <Link
           to="/doctor-checklist"
-          className="px-5 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow transition-all whitespace-nowrap"
+          className="px-5 py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 font-bold text-xs shadow transition-all whitespace-nowrap"
         >
           View Doctor Checklist
         </Link>

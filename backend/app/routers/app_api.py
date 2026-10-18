@@ -1,20 +1,22 @@
 """Catalog, knowledge, assessments, providers, reminders, saved items, activity, account."""
-import json
-from datetime import date
+from datetime import date, datetime, timezone
 from typing import Literal, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from pydantic import BaseModel, Field
+from sqlalchemy.exc import IntegrityError
 from sqlmodel import Session, select
 
 from app.db import get_session
 from app.models import (
-    AssessmentRun, AuditEvent, HealthInfo, HistoryInfo, Location, PasswordReset, Profile, Reminder, SafetyInfo,
-    SavedItem, User, VaccinationRecord,
+    AssessmentRun, AuditEvent, HealthInfo, HistoryInfo, Location, NotificationPreference, PasswordReset,
+    Profile, Reminder, SafetyInfo, SavedItem, User, VaccinationRecord, VaccineUpdateNotification,
 )
 from app.models import Session as SessionRow
 from app.security import current_user, end_session, verify_password
 from app.services import assessment, audit, intake, providers
+from app.services.email import email_ready
+from app.services.notifications import sync_user_notifications
 from app.services.catalog import (
     ALLERGY_CATEGORIES, ALLERGY_SEVERITIES, ALLERGY_SUBSTANCES, JURISDICTIONS, PRODUCTS, REACTION_KINDS,
     SAFETY_FACTS,
@@ -188,6 +190,89 @@ def update_reminder(rid: str, body: ReminderPatch, user: User = Depends(current_
     return _reminder_out(r)
 
 
+# ---------- Patient vaccine-update alerts ----------
+
+class NotificationPreferenceIn(BaseModel):
+    in_app_updates: bool = True
+    email_updates: bool = False
+
+
+def _notification_preference(db: Session, user: User) -> NotificationPreference:
+    pref = db.get(NotificationPreference, user.id)
+    if not pref:
+        pref = NotificationPreference(user_id=user.id)
+        db.add(pref)
+        try:
+            db.commit()
+        except IntegrityError:
+            # The app shell and preferences page may initialize this row at once.
+            db.rollback()
+            pref = db.get(NotificationPreference, user.id)
+            if not pref:
+                raise
+        db.refresh(pref)
+    return pref
+
+
+@router.get("/notifications/preferences")
+def notification_preferences(user: User = Depends(current_user), db: Session = Depends(get_session)):
+    pref = _notification_preference(db, user)
+    return {"inAppUpdates": pref.in_app_updates, "emailUpdates": pref.email_updates,
+            "emailAvailable": email_ready(), "email": user.email}
+
+
+@router.get("/notifications")
+def list_notifications(user: User = Depends(current_user), db: Session = Depends(get_session)):
+    pref = _notification_preference(db, user)
+    result = sync_user_notifications(db, user, pref)
+    return {"items": result["items"], "unreadCount": result["unreadCount"]}
+
+
+@router.put("/notifications/preferences")
+def save_notification_preferences(body: NotificationPreferenceIn, user: User = Depends(current_user), db: Session = Depends(get_session)):
+    if body.email_updates and not email_ready():
+        raise HTTPException(503, "Email alerts are not configured on this service yet. In-app alerts are still available.")
+    pref = _notification_preference(db, user)
+    now = datetime.now(timezone.utc)
+    changed = []
+    if body.in_app_updates != pref.in_app_updates:
+        changed.append("in_app_updates")
+        pref.in_app_since = now
+    if body.email_updates != pref.email_updates:
+        changed.append("email_updates")
+        pref.email_since = now if body.email_updates else None
+    pref.in_app_updates = body.in_app_updates
+    pref.email_updates = body.email_updates
+    pref.updated_at = now
+    db.add(pref)
+    if changed:
+        audit.record(db, user.id, "notification_preferences", "updated", changed)
+    db.commit()
+    return {"inAppUpdates": pref.in_app_updates, "emailUpdates": pref.email_updates,
+            "emailAvailable": email_ready(), "email": user.email}
+
+
+@router.post("/notifications/sync")
+def sync_notifications(user: User = Depends(current_user), db: Session = Depends(get_session)):
+    pref = _notification_preference(db, user)
+    return sync_user_notifications(db, user, pref)
+
+
+class NotificationReadIn(BaseModel):
+    read: bool = True
+
+
+@router.patch("/notifications/{notification_id}")
+def mark_notification(notification_id: str, body: NotificationReadIn, user: User = Depends(current_user), db: Session = Depends(get_session)):
+    row = db.get(VaccineUpdateNotification, notification_id)
+    if not row or row.user_id != user.id:
+        raise HTTPException(404, "Notification not found.")
+    row.read_at = None if not body.read else datetime.now(timezone.utc)
+    db.add(row)
+    db.commit()
+    return {"id": row.id, "read": row.read_at is not None}
+
+
 # ---------- Saved items ----------
 
 class SavedIn(BaseModel):
@@ -247,11 +332,17 @@ def export(user: User = Depends(current_user), db: Session = Depends(get_session
 
     data = serialize(intake.load(db, user))
     runs = db.exec(select(AssessmentRun).where(AssessmentRun.user_id == user.id)).all()
+    alert_preferences = db.get(NotificationPreference, user.id)
+    alert_rows = db.exec(select(VaccineUpdateNotification).where(VaccineUpdateNotification.user_id == user.id)).all()
     payload = {
         "exportedAt": date.today().isoformat(), "account": {"email": user.email, "createdAt": user.created_at.isoformat()},
         **data,
         "assessments": [_run_out(r) for r in runs],
         "reminders": [_reminder_out(r) for r in db.exec(select(Reminder).where(Reminder.user_id == user.id)).all()],
+        "notificationPreferences": ({"inAppUpdates": alert_preferences.in_app_updates,
+                                     "emailUpdates": alert_preferences.email_updates} if alert_preferences else None),
+        "vaccineUpdateAlerts": [{"updateId": n.update_id, "title": n.title, "read": n.read_at is not None,
+                                 "createdAt": n.created_at.isoformat()} for n in alert_rows],
     }
     return Response(json.dumps(payload, indent=2, default=str), media_type="application/json",
                     headers={"Content-Disposition": 'attachment; filename="my-vaccination-data.json"'})
@@ -267,7 +358,8 @@ def delete_account(body: DeleteIn, request: Request, response: Response, user: U
         row = db.get(model, user.id)
         if row:
             db.delete(row)
-    for model in (VaccinationRecord, AssessmentRun, Reminder, SavedItem, AuditEvent, SessionRow, PasswordReset):
+    for model in (VaccinationRecord, AssessmentRun, Reminder, NotificationPreference, VaccineUpdateNotification,
+                  SavedItem, AuditEvent, SessionRow, PasswordReset):
         for row in db.exec(select(model).where(model.user_id == user.id)).all():
             db.delete(row)
     db.delete(user)

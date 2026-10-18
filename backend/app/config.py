@@ -43,5 +43,13 @@ COOKIE_SECURE = _bool("COOKIE_SECURE", False)
 # Where the frontend lives, used to build password-reset links.
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
 
+# Optional SMTP transport for patient vaccine-update alerts. Until all values
+# are configured, in-app alerts remain available and email alerts are disabled.
+SMTP_HOST = os.getenv("SMTP_HOST", "")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+SMTP_USERNAME = os.getenv("SMTP_USERNAME", "")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
+SMTP_FROM = os.getenv("SMTP_FROM", "")
+
 # Demo data (providers, availability, prices), never mixed with verified data.
 DEMO_DATA_DIR = PROJECT_ROOT / "data" / "demo"

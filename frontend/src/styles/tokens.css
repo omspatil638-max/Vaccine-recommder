@@ -62,7 +62,7 @@
   --demo-soft: oklch(95.8% 0.015 258);
 
   /* ── Type ────────────────────────────────────────────────────────── */
-  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Manrope", "Segoe UI", system-ui, sans-serif;
   --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-data: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
 

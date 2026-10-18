@@ -24,7 +24,7 @@ export default function NotFoundPage() {
         <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-xs shadow-xs transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-xs transition-colors"
           >
             <Home className="w-4 h-4" />
             <span>Go to Homepage</span>
@@ -33,14 +33,14 @@ export default function NotFoundPage() {
             to="/vaccine-library"
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs border border-slate-200 transition-colors"
           >
-            <BookOpen className="w-4 h-4 text-teal-600" />
+            <BookOpen className="w-4 h-4 text-blue-600" />
             <span>Vaccine Library</span>
           </Link>
           <Link
             to="/doctor-checklist"
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs border border-slate-200 transition-colors"
           >
-            <ClipboardList className="w-4 h-4 text-teal-600" />
+            <ClipboardList className="w-4 h-4 text-blue-600" />
             <span>Doctor Checklist</span>
           </Link>
         </div>

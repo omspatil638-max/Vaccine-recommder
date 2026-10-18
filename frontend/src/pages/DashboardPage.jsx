@@ -56,7 +56,7 @@ export default function DashboardPage({ profile, recommendations, reviewStatus, 
               </button>
               <button
                 onClick={() => onTabChange('review')}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-white px-3 py-2 text-xs font-semibold text-slate-900 shadow-lg shadow-sky-900/20 transition hover:bg-slate-100"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-white px-3 py-2 text-xs font-semibold text-slate-900 shadow-lg shadow-blue-900/20 transition hover:bg-slate-100"
               >
                 <UserCheck className="w-4 h-4" />
                 Review
@@ -90,7 +90,7 @@ export default function DashboardPage({ profile, recommendations, reviewStatus, 
               <ul className="mt-4 space-y-3 text-sm text-slate-200">
                 {nextActions.map((action) => (
                   <li key={action} className="flex items-start gap-2">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-cyan-300" />
+                    <span className="mt-1 h-2 w-2 rounded-full bg-blue-300" />
                     <span>{action}</span>
                   </li>
                 ))}

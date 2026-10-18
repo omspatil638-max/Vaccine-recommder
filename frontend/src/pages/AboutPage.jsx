@@ -26,7 +26,7 @@ export default function AboutPage() {
 
       {/* Header */}
       <div className="max-w-3xl space-y-2">
-        <span className="text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-100 px-2.5 py-0.5 rounded-full">
+        <span className="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-2.5 py-0.5 rounded-full">
           About the Public Health Initiative
         </span>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1.5">
@@ -40,7 +40,7 @@ export default function AboutPage() {
       {/* Mission & Background */}
       <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs space-y-4">
         <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-          <Shield className="w-5 h-5 text-teal-600" />
+          <Shield className="w-5 h-5 text-blue-600" />
           The Adult Vaccination Awareness Gap in India
         </h2>
         <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
@@ -54,7 +54,7 @@ export default function AboutPage() {
       {/* 4 Core Pillars */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs space-y-2">
-          <div className="w-9 h-9 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center">
+          <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center">
             <BookOpen className="w-5 h-5" />
           </div>
           <h3 className="font-bold text-slate-900 text-sm">
@@ -70,15 +70,15 @@ export default function AboutPage() {
             <Lock className="w-5 h-5" />
           </div>
           <h3 className="font-bold text-slate-900 text-sm">
-            2. Privacy by Design (Zero Data Collection)
+            2. Separate public and patient account experiences
           </h3>
           <p className="text-xs text-slate-600 leading-relaxed">
-            SmartVax does not require account creation, login, names, phone numbers, or Aadhaar details. Questionnaire answers exist only in temporary browser memory and are never transmitted to any server.
+            The public awareness guide works without an account and keeps its answers in your browser. If you create a patient account, the profile and health details you choose to save are stored by the service so it can keep your records and check for relevant alerts. See our privacy page for details.
           </p>
         </div>
 
         <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs space-y-2">
-          <div className="w-9 h-9 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center">
+          <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center">
             <Users className="w-5 h-5" />
           </div>
           <h3 className="font-bold text-slate-900 text-sm">
@@ -103,9 +103,9 @@ export default function AboutPage() {
       </div>
 
       {/* Clinic Poster & QR Strategy Box */}
-      <div className="bg-gradient-to-r from-slate-900 to-teal-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-gradient-to-r from-slate-900 to-blue-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2">
-          <span className="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-teal-400/20 text-teal-300">
+          <span className="text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-blue-400/20 text-blue-300">
             For Clinics, Doctors & Public Health Workers
           </span>
           <h3 className="text-xl font-bold text-white">
@@ -117,7 +117,7 @@ export default function AboutPage() {
         </div>
         <button
           onClick={() => setPosterModalOpen(true)}
-          className="px-5 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow-md transition-all flex items-center gap-2 whitespace-nowrap"
+          className="px-5 py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 font-bold text-xs shadow-md transition-all flex items-center gap-2 whitespace-nowrap"
         >
           <QrCode className="w-4 h-4" />
           <span>Open Poster & WhatsApp Share Tool</span>
@@ -131,27 +131,27 @@ export default function AboutPage() {
         </h3>
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
           <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
             <span>Ministry of Health and Family Welfare (MoHFW), Govt. of India</span>
           </li>
           <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
             <span>National Technical Advisory Group on Immunization (NTAGI)</span>
           </li>
           <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
             <span>Association of Physicians of India (API) Adult Immunization Consensus</span>
           </li>
           <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
             <span>World Health Organization (WHO) Country Office for India</span>
           </li>
           <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
             <span>Federation of Obstetric and Gynaecological Societies of India (FOGSI)</span>
           </li>
           <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
             <span>Research Society for the Study of Diabetes in India (RSSDI)</span>
           </li>
         </ul>

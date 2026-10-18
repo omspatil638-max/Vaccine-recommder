@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from typing import Optional
 from uuid import uuid4
 
-from sqlalchemy import JSON, Column
+from sqlalchemy import JSON, Column, UniqueConstraint
 from sqlmodel import Field, SQLModel
 
 
@@ -136,6 +136,30 @@ class Reminder(SQLModel, table=True):
     rule_id: Optional[str] = None
     status: str = "open"  # open | done | dismissed
     created_at: datetime = Field(default_factory=utcnow)
+
+
+class NotificationPreference(SQLModel, table=True):
+    user_id: str = Field(primary_key=True, foreign_key="user.id")
+    in_app_updates: bool = True
+    email_updates: bool = False
+    in_app_since: datetime = Field(default_factory=utcnow)
+    email_since: Optional[datetime] = None
+    updated_at: datetime = Field(default_factory=utcnow)
+
+
+class VaccineUpdateNotification(SQLModel, table=True):
+    __table_args__ = (UniqueConstraint("user_id", "update_id"),)
+    id: str = Field(default_factory=new_id, primary_key=True)
+    user_id: str = Field(index=True, foreign_key="user.id")
+    update_id: str
+    vaccine_id: Optional[str] = None
+    title: str
+    summary: str
+    kind: str
+    source_url: Optional[str] = None
+    created_at: datetime = Field(default_factory=utcnow)
+    read_at: Optional[datetime] = None
+    email_sent_at: Optional[datetime] = None
 
 
 class SavedItem(SQLModel, table=True):

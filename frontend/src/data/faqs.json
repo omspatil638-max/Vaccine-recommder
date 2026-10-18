@@ -52,7 +52,7 @@
     "id": "faq-8",
     "category": "Privacy & Data",
     "question": "How does SmartVax handle my questionnaire responses?",
-    "answer": "SmartVax strictly respects your privacy. All questionnaire answers on the Awareness Guide are processed locally inside your web browser. SmartVax does NOT require a login, does NOT ask for your name, phone number, or Aadhaar number, and never transmits your private health answers to any remote database, marketing tracker, or third-party service.",
+    "answer": "The public Awareness Guide does not require an account; its answers stay in your browser. If you create a patient account, information you choose to save—such as your email, profile, health answers, vaccination history, assessments, and alert preferences—is stored by the service so it can provide your account features. You can export or delete your account data in Settings. Email alerts are sent only if you opt in and email delivery is configured.",
     "source": "SmartVax Privacy by Design Architecture"
   }
 ]

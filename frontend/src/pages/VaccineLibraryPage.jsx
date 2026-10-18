@@ -109,7 +109,7 @@ export default function VaccineLibraryPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-5">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-100 px-2.5 py-0.5 rounded-full">
+          <span className="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-2.5 py-0.5 rounded-full">
             Verified Guideline Database &bull; India
           </span>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1.5">
@@ -134,7 +134,7 @@ export default function VaccineLibraryPage() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search by vaccine name, disease prevented (e.g. flu, cervical cancer, pneumonia, rabies)..."
-            className="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+            className="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
           {searchQuery && (
             <button
@@ -156,7 +156,7 @@ export default function VaccineLibraryPage() {
             <select
               value={selectedAge}
               onChange={(e) => setSelectedAge(e.target.value)}
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-800 bg-white focus:ring-2 focus:ring-teal-500"
+              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-800 bg-white focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Age Groups</option>
               <option value="18-29">Ages 18–29 (Young Adults)</option>
@@ -174,7 +174,7 @@ export default function VaccineLibraryPage() {
             <select
               value={selectedCondition}
               onChange={(e) => setSelectedCondition(e.target.value)}
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-800 bg-white focus:ring-2 focus:ring-teal-500"
+              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-800 bg-white focus:ring-2 focus:ring-blue-500"
             >
               {conditionsList.map((c) => (
                 <option key={c.id} value={c.id}>
@@ -192,7 +192,7 @@ export default function VaccineLibraryPage() {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-800 bg-white focus:ring-2 focus:ring-teal-500"
+              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-800 bg-white focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Categories</option>
               {categories.filter((c) => c !== 'all').map((c) => (
@@ -212,7 +212,7 @@ export default function VaccineLibraryPage() {
             </span>
             <button
               onClick={handleResetFilters}
-              className="text-teal-700 hover:text-teal-900 font-bold flex items-center gap-1.5 transition-colors"
+              className="text-blue-700 hover:text-blue-900 font-bold flex items-center gap-1.5 transition-colors"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               Reset All Filters
@@ -233,7 +233,7 @@ export default function VaccineLibraryPage() {
           </p>
           <button
             onClick={handleResetFilters}
-            className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold text-xs rounded-xl shadow-xs transition-colors inline-flex items-center gap-1.5"
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs rounded-xl shadow-xs transition-colors inline-flex items-center gap-1.5"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             Reset Filters
@@ -296,7 +296,7 @@ export default function VaccineLibraryPage() {
                 </span>
                 <Link
                   to={`/vaccine-library/${v.id}`}
-                  className="font-bold text-teal-700 hover:text-teal-900 flex items-center gap-1.5 group"
+                  className="font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1.5 group"
                 >
                   <span>Detailed Clinical Info</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

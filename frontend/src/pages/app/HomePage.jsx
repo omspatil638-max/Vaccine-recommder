@@ -197,6 +197,9 @@ export default function HomePage() {
               <li>
                 <Link to="/profile">Update your information</Link>
               </li>
+              <li>
+                <Link to="/notifications">Vaccine update alerts</Link>
+              </li>
             </ul>
           </section>
         </aside>

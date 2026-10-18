@@ -124,7 +124,7 @@ export default function DoctorChecklistPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-5">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-100 px-2.5 py-0.5 rounded-full">
+          <span className="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-2.5 py-0.5 rounded-full">
             Patient Preparation Tool
           </span>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1.5">
@@ -163,7 +163,7 @@ export default function DoctorChecklistPage() {
         <div className="flex items-center gap-3">
           <button
             onClick={selectAll}
-            className="text-teal-700 hover:text-teal-900 font-bold"
+            className="text-blue-700 hover:text-blue-900 font-bold"
           >
             Select All
           </button>
@@ -202,19 +202,19 @@ export default function DoctorChecklistPage() {
             onClick={() => toggleQuestion(q.id)}
             className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-start gap-3.5 ${
               q.selected
-                ? 'bg-teal-50/60 border-teal-400 text-slate-900 shadow-2xs'
+                ? 'bg-blue-50/60 border-blue-400 text-slate-900 shadow-2xs'
                 : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300'
             }`}
           >
-            <div className="mt-0.5 shrink-0 text-teal-600">
+            <div className="mt-0.5 shrink-0 text-blue-600">
               {q.selected ? (
-                <CheckSquare className="w-5 h-5 text-teal-600 fill-teal-100" />
+                <CheckSquare className="w-5 h-5 text-blue-600 fill-blue-100" />
               ) : (
                 <Square className="w-5 h-5 text-slate-400" />
               )}
             </div>
             <div className="flex-1">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-100/80 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-800 bg-blue-100/80 px-2 py-0.5 rounded">
                 {q.category}
               </span>
               <p className={`text-xs sm:text-sm font-medium mt-1 leading-relaxed ${q.selected ? 'text-slate-900 font-semibold' : 'text-slate-700'}`}>
@@ -234,7 +234,7 @@ export default function DoctorChecklistPage() {
             value={customNote}
             onChange={(e) => setCustomNote(e.target.value)}
             placeholder="e.g. Taking metformin for diabetes; received tetanus shot 5 years ago after a bike fall; mild penicillin allergy..."
-            className="w-full text-xs sm:text-sm p-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
+            className="w-full text-xs sm:text-sm p-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
       </div>
@@ -242,7 +242,7 @@ export default function DoctorChecklistPage() {
       {/* Helpful Tips on Speaking with Your Doctor */}
       <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-xs space-y-3">
         <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-          <HelpCircle className="w-4 h-4 text-teal-600" />
+          <HelpCircle className="w-4 h-4 text-blue-600" />
           Tips for an Effective Clinical Conversation in India
         </h3>
         <ul className="list-disc list-inside space-y-1.5 text-xs text-slate-600 leading-relaxed">

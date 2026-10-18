@@ -122,6 +122,12 @@ export function SettingsPage() {
         </section>
 
         <section className="space-y-3 border-t border-rule pt-8">
+          <h2 className="text-xl">Vaccine update alerts</h2>
+          <p className="text-ink-2">Choose whether relevant, reviewed vaccine updates appear in your account and arrive by email.</p>
+          <Link to="/notifications" className="inline-flex min-h-11 items-center text-sm font-semibold">Manage alert preferences</Link>
+        </section>
+
+        <section className="space-y-3 border-t border-rule pt-8">
           <h2 className="text-xl">Your data</h2>
           <p className="text-ink-2">Download everything we hold about you as a file you can keep or share with a professional.</p>
           <a href={api.url('/account/export')} className="inline-flex min-h-11 items-center rounded-sm border border-rule-strong px-4 text-sm font-semibold text-ink no-underline hover:bg-paper-2" download>

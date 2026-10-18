@@ -9,7 +9,7 @@ export const AGE_GROUPS_DATA = [
     id: '18-29',
     title: 'Young Adults (Ages 18–29)',
     subtitle: 'Catch-up immunity, cancer prevention, college/hostel exposures, and occupational start.',
-    theme: 'from-blue-500 to-teal-500',
+    theme: 'from-blue-500 to-blue-500',
     badgeColor: 'bg-blue-100 text-blue-800',
     keyVaccines: [
       {
@@ -39,8 +39,8 @@ export const AGE_GROUPS_DATA = [
     id: '30-49',
     title: 'Middle Adulthood (Ages 30–49)',
     subtitle: 'Family protection, emerging lifestyle conditions (early diabetes/hypertension), and travel.',
-    theme: 'from-teal-600 to-emerald-600',
-    badgeColor: 'bg-teal-100 text-teal-800',
+    theme: 'from-blue-600 to-emerald-600',
+    badgeColor: 'bg-blue-100 text-blue-800',
     keyVaccines: [
       {
         name: 'Annual Influenza (Flu)',
@@ -153,7 +153,7 @@ export default function AgeGroupsPage() {
             <div>
               <Link
                 to="/age-groups"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-teal-700 transition-colors mb-2"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-blue-700 transition-colors mb-2"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>View All Age Groups</span>
@@ -167,7 +167,7 @@ export default function AgeGroupsPage() {
             </div>
             <Link
               to={`/vaccine-library?age=${singleGroup.id}`}
-              className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow-xs transition-colors self-start sm:self-auto flex items-center gap-1.5"
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-xs transition-colors self-start sm:self-auto flex items-center gap-1.5"
             >
               <span>Filter Library for this Age</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -175,11 +175,11 @@ export default function AgeGroupsPage() {
           </div>
 
           {/* Clinical Rationale */}
-          <div className="bg-sky-50 border-l-4 border-sky-400 p-4 rounded-r-2xl text-xs sm:text-sm text-sky-950 flex items-start gap-3">
-            <Info className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-2xl text-xs sm:text-sm text-blue-950 flex items-start gap-3">
+            <Info className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
             <div>
-              <strong className="text-sky-950 font-bold">Clinical Guidance Context in India:</strong>{' '}
-              <span className="text-sky-900">{singleGroup.clinicalNote}</span>
+              <strong className="text-blue-950 font-bold">Clinical Guidance Context in India:</strong>{' '}
+              <span className="text-blue-900">{singleGroup.clinicalNote}</span>
             </div>
           </div>
 
@@ -196,7 +196,7 @@ export default function AgeGroupsPage() {
                 >
                   <div>
                     <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
                       <span>{v.name}</span>
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed mt-1.5">
@@ -206,7 +206,7 @@ export default function AgeGroupsPage() {
                   <div className="pt-2 border-t border-slate-200/60 flex justify-end">
                     <Link
                       to={`/vaccine-library/${v.id}`}
-                      className="text-xs font-bold text-teal-700 hover:text-teal-900 flex items-center gap-1"
+                      className="text-xs font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1"
                     >
                       <span>Read detailed clinical guide</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -229,7 +229,7 @@ export default function AgeGroupsPage() {
             </div>
             <Link
               to="/doctor-checklist"
-              className="px-5 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow transition-all whitespace-nowrap"
+              className="px-5 py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 font-bold text-xs shadow transition-all whitespace-nowrap"
             >
               Open Doctor Checklist
             </Link>
@@ -247,7 +247,7 @@ export default function AgeGroupsPage() {
 
       {/* Header */}
       <div className="max-w-3xl space-y-2">
-        <span className="text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-100 px-2.5 py-0.5 rounded-full">
+        <span className="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-2.5 py-0.5 rounded-full">
           Life-Stage Guidance &bull; India
         </span>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -277,7 +277,7 @@ export default function AgeGroupsPage() {
                 <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-2">
                   <Link
                     to={`/age-groups/${item.id === '65+' ? '65-plus' : item.id}`}
-                    className="hover:text-teal-700 transition-colors"
+                    className="hover:text-blue-700 transition-colors"
                   >
                     {item.title}
                   </Link>
@@ -295,7 +295,7 @@ export default function AgeGroupsPage() {
                 </Link>
                 <Link
                   to={`/vaccine-library?age=${item.id}`}
-                  className="text-xs font-bold text-teal-700 hover:text-teal-900 bg-teal-50 hover:bg-teal-100 px-3.5 py-2 rounded-xl transition-colors flex items-center gap-1.5"
+                  className="text-xs font-bold text-blue-700 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 px-3.5 py-2 rounded-xl transition-colors flex items-center gap-1.5"
                 >
                   <span>Filter Library</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -313,7 +313,7 @@ export default function AgeGroupsPage() {
                   <div key={i} className="bg-slate-50/80 border border-slate-200/80 rounded-xl p-3.5 flex flex-col justify-between">
                     <div>
                       <div className="font-bold text-sm text-slate-900 flex items-center gap-1.5">
-                        <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
                         <span>{v.name}</span>
                       </div>
                       <p className="text-xs text-slate-600 mt-1 leading-relaxed">
@@ -323,7 +323,7 @@ export default function AgeGroupsPage() {
                     <div className="mt-2.5 pt-2 border-t border-slate-200/60 flex justify-end">
                       <Link
                         to={`/vaccine-library/${v.id}`}
-                        className="text-[11px] font-semibold text-teal-700 hover:text-teal-900 flex items-center gap-1"
+                        className="text-[11px] font-semibold text-blue-700 hover:text-blue-900 flex items-center gap-1"
                       >
                         <span>View vaccine details</span>
                         <ArrowRight className="w-3 h-3" />
@@ -335,8 +335,8 @@ export default function AgeGroupsPage() {
             </div>
 
             {/* Clinical context footnote */}
-            <div className="bg-sky-50/70 border-l-4 border-sky-400 p-3 rounded-r-xl text-xs text-sky-950 flex items-start gap-2">
-              <Info className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
+            <div className="bg-blue-50/70 border-l-4 border-blue-400 p-3 rounded-r-xl text-xs text-blue-950 flex items-start gap-2">
+              <Info className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
               <div>
                 <strong>Clinical Context (India):</strong> {item.clinicalNote}
               </div>
@@ -357,7 +357,7 @@ export default function AgeGroupsPage() {
         </div>
         <Link
           to="/awareness-guide"
-          className="px-5 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow transition-all whitespace-nowrap"
+          className="px-5 py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 font-bold text-xs shadow transition-all whitespace-nowrap"
         >
           Take Awareness Questionnaire
         </Link>

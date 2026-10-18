@@ -53,8 +53,13 @@
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
+  --radius-xl: 12px;
+  --radius-2xl: 12px;
+  --radius-3xl: 20px;
 
   --text-display: var(--text-display);
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.45;
   --text-display--line-height: 1.08;
   --text-display--letter-spacing: -0.025em;
   --text-statement: var(--text-statement);
@@ -178,6 +183,28 @@
     white-space: nowrap;
     border: 0;
   }
+}
+
+/* Public pages share one readable editorial baseline. Component utilities can
+ * still define layout and color, while these rules keep text and depth aligned. */
+.site-main h1,
+.site-main h2,
+.site-main h3 {
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-heading);
+}
+
+.site-main h1 { font-weight: 700; line-height: 1.12; }
+.site-main h2 { font-weight: 700; line-height: 1.2; }
+.site-main h3 { font-weight: 600; line-height: 1.3; }
+
+.site-main .shadow-xs,
+.site-main .shadow-sm,
+.site-main .shadow-md,
+.site-main .shadow-lg,
+.site-main .shadow-xl,
+.site-main .shadow-2xl {
+  box-shadow: var(--shadow-card);
 }
 
 @media print {

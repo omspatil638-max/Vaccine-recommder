@@ -67,7 +67,7 @@ export default function ClinicPosterPage() {
       >
         {/* Poster Top Brand */}
         <div className="flex items-center justify-center gap-2.5">
-          <div className="w-10 h-10 rounded-xl bg-teal-600 flex items-center justify-center text-white">
+          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white">
             <Shield className="w-6 h-6" />
           </div>
           <span className="font-extrabold text-2xl tracking-tight text-slate-900">
@@ -82,7 +82,7 @@ export default function ClinicPosterPage() {
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Did You Know?<br />
-            <span className="text-teal-700">Vaccines Aren't Just for Children.</span>
+            <span className="text-blue-700">Vaccines Aren't Just for Children.</span>
           </h2>
           <p className="text-sm text-slate-600 max-w-lg mx-auto font-medium">
             Adults also need protection against pneumonia, shingles, Hepatitis B, cervical cancer, seasonal flu, and tetanus.
@@ -90,7 +90,7 @@ export default function ClinicPosterPage() {
         </div>
 
         {/* High-Contrast QR Code */}
-        <div className="bg-slate-50 border-2 border-dashed border-teal-400 rounded-3xl p-6 inline-block shadow-xs">
+        <div className="bg-slate-50 border-2 border-dashed border-blue-400 rounded-3xl p-6 inline-block shadow-xs">
           <div className="bg-white p-4 rounded-2xl shadow-sm inline-block">
             <QRCodeSVG
               value={landingUrl}
@@ -113,7 +113,7 @@ export default function ClinicPosterPage() {
         </div>
 
         {/* Key Health Bullets for Waiting Room Patients */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left text-xs bg-teal-50/60 border border-teal-200/80 rounded-2xl p-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left text-xs bg-blue-50/60 border border-blue-200/80 rounded-2xl p-5">
           <div>
             <strong className="text-slate-900 block font-bold mb-1">
               • Diabetics & Lung Conditions:

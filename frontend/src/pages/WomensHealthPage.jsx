@@ -98,7 +98,7 @@ export default function WomensHealthPage() {
             <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
               <Link
                 to={`/vaccine-library/${topic.vaccineId}`}
-                className="text-xs font-bold text-teal-700 hover:text-teal-900 flex items-center gap-1"
+                className="text-xs font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1"
               >
                 <span>Read detailed vaccine guide</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -120,7 +120,7 @@ export default function WomensHealthPage() {
         </div>
         <Link
           to="/doctor-checklist"
-          className="px-5 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs shadow transition-all whitespace-nowrap"
+          className="px-5 py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-slate-950 font-bold text-xs shadow transition-all whitespace-nowrap"
         >
           Open Doctor Checklist
         </Link>

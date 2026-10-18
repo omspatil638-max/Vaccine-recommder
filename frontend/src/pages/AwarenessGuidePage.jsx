@@ -29,7 +29,7 @@ export default function AwarenessGuidePage() {
 
   // Form state (temporary in-memory only — never transmitted to server)
   const [answers, setAnswers] = useState({
-    ageGroup: '18-29',
+    ageGroup: '',
     conditions: [],
     historyStatus: 'unknown',
     genderConsideration: 'none',
@@ -66,7 +66,7 @@ export default function AwarenessGuidePage() {
     setSubmitted(false);
     setStep(1);
     setAnswers({
-      ageGroup: '18-29',
+      ageGroup: '',
       conditions: [],
       historyStatus: 'unknown',
       genderConsideration: 'none',
@@ -107,7 +107,7 @@ export default function AwarenessGuidePage() {
       {/* Intro Header */}
       {!submitted ? (
         <div className="max-w-3xl space-y-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-100 px-2.5 py-0.5 rounded-full">
+          <span className="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-2.5 py-0.5 rounded-full">
             Private Interactive Questionnaire
           </span>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
@@ -116,8 +116,8 @@ export default function AwarenessGuidePage() {
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Answer a few general questions to organize topics you may wish to discuss with your doctor.
           </p>
-          <div className="bg-teal-50 border border-teal-200 p-3 rounded-xl text-xs text-teal-900 flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-teal-700 shrink-0" />
+          <div className="bg-blue-50 border border-blue-200 p-3 rounded-xl text-xs text-blue-900 flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-blue-700 shrink-0" />
             <span>
               <strong>Zero Data Collection:</strong> We do NOT ask for your name, phone, or address. All evaluations run locally inside your browser and vanish upon closing.
             </span>
@@ -129,7 +129,7 @@ export default function AwarenessGuidePage() {
       {!submitted ? (
         <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs space-y-6 max-w-3xl">
           {/* Progress Indicator */}
-          <div className="flex items-center justify-between border-b pb-4">
+              <div className="flex items-center justify-between border-b pb-4" aria-label={`Progress: step ${step} of 4`}>
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
               Step {step} of 4
             </span>
@@ -138,7 +138,7 @@ export default function AwarenessGuidePage() {
                 <div
                   key={s}
                   className={`h-1.5 w-8 rounded-full transition-colors ${
-                    s <= step ? 'bg-teal-600' : 'bg-slate-200'
+                    s <= step ? 'bg-blue-600' : 'bg-slate-200'
                   }`}
                 />
               ))}
@@ -150,7 +150,7 @@ export default function AwarenessGuidePage() {
             <div className="space-y-4">
               <div>
                 <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-teal-600" />
+                  <Calendar className="w-5 h-5 text-blue-600" />
                   What is your age bracket?
                 </h2>
                 <p className="text-xs text-slate-500 mt-1">
@@ -171,7 +171,7 @@ export default function AwarenessGuidePage() {
                     onClick={() => setAnswers({ ...answers, ageGroup: opt.id })}
                     className={`p-4 rounded-2xl border text-left transition-all ${
                       answers.ageGroup === opt.id
-                        ? 'bg-teal-50 border-teal-600 text-teal-950 ring-2 ring-teal-500/20 shadow-xs'
+                        ? 'bg-blue-50 border-blue-600 text-blue-950 ring-2 ring-blue-500/20 shadow-xs'
                         : 'border-slate-200 hover:border-slate-300 text-slate-800'
                     }`}
                   >
@@ -188,7 +188,7 @@ export default function AwarenessGuidePage() {
             <div className="space-y-4">
               <div>
                 <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
-                  <HeartPulse className="w-5 h-5 text-teal-600" />
+                  <HeartPulse className="w-5 h-5 text-blue-600" />
                   Do you live with any chronic health conditions?
                 </h2>
                 <p className="text-xs text-slate-500 mt-1">
@@ -213,13 +213,13 @@ export default function AwarenessGuidePage() {
                       onClick={() => handleConditionToggle(c.id)}
                       className={`p-4 rounded-2xl border text-left transition-all ${
                         selected
-                          ? 'bg-teal-50 border-teal-600 text-teal-950 ring-2 ring-teal-500/20'
+                          ? 'bg-blue-50 border-blue-600 text-blue-950 ring-2 ring-blue-500/20'
                           : 'border-slate-200 hover:border-slate-300 text-slate-800'
                       }`}
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-sm">{c.label}</span>
-                        {selected && <CheckCircle2 className="w-4 h-4 text-teal-600" />}
+                        {selected && <CheckCircle2 className="w-4 h-4 text-blue-600" />}
                       </div>
                       <div className="text-xs text-slate-500 mt-0.5">{c.desc}</div>
                     </button>
@@ -234,7 +234,7 @@ export default function AwarenessGuidePage() {
             <div className="space-y-4">
               <div>
                 <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
-                  <BookOpen className="w-5 h-5 text-teal-600" />
+                  <BookOpen className="w-5 h-5 text-blue-600" />
                   What is the status of your past vaccination records?
                 </h2>
                 <p className="text-xs text-slate-500 mt-1">
@@ -266,7 +266,7 @@ export default function AwarenessGuidePage() {
                     onClick={() => setAnswers({ ...answers, historyStatus: opt.id })}
                     className={`w-full p-4 rounded-2xl border text-left transition-all ${
                       answers.historyStatus === opt.id
-                        ? 'bg-teal-50 border-teal-600 text-teal-950 ring-2 ring-teal-500/20'
+                        ? 'bg-blue-50 border-blue-600 text-blue-950 ring-2 ring-blue-500/20'
                         : 'border-slate-200 hover:border-slate-300 text-slate-800'
                     }`}
                   >
@@ -283,7 +283,7 @@ export default function AwarenessGuidePage() {
             <div className="space-y-4">
               <div>
                 <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-teal-600" />
+                  <Sparkles className="w-5 h-5 text-blue-600" />
                   Any specific areas you would like to explore?
                 </h2>
                 <p className="text-xs text-slate-500 mt-1">
@@ -306,13 +306,13 @@ export default function AwarenessGuidePage() {
                       onClick={() => handleTopicToggle(t.id)}
                       className={`p-3.5 rounded-xl border text-left transition-all ${
                         selected
-                          ? 'bg-teal-50 border-teal-600 text-teal-950 ring-2 ring-teal-500/20'
+                          ? 'bg-blue-50 border-blue-600 text-blue-950 ring-2 ring-blue-500/20'
                           : 'border-slate-200 hover:border-slate-300 text-slate-800'
                       }`}
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-xs">{t.label}</span>
-                        {selected && <CheckCircle2 className="w-4 h-4 text-teal-600" />}
+                        {selected && <CheckCircle2 className="w-4 h-4 text-blue-600" />}
                       </div>
                     </button>
                   );
@@ -338,7 +338,8 @@ export default function AwarenessGuidePage() {
               <button
                 type="button"
                 onClick={() => setStep(step + 1)}
-                className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-xs transition-colors"
+                disabled={step === 1 && !answers.ageGroup}
+                className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-6 py-2.5 text-xs font-bold text-white shadow-xs transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600"
               >
                 <span>Continue</span>
                 <ArrowRight className="w-4 h-4" />
@@ -347,7 +348,7 @@ export default function AwarenessGuidePage() {
               <button
                 type="button"
                 onClick={() => setSubmitted(true)}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-extrabold text-xs shadow-md transition-all"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-extrabold text-xs shadow-md transition-all"
               >
                 <Sparkles className="w-4 h-4" />
                 Generate Discussion Guide
@@ -362,7 +363,7 @@ export default function AwarenessGuidePage() {
           <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
               <div>
-                <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase bg-teal-100 text-teal-800">
+                <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase bg-blue-100 text-blue-800">
                   Customized Clinical Discussion Guide
                 </span>
                 <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1">
@@ -423,7 +424,7 @@ export default function AwarenessGuidePage() {
           {/* Educational Topics Matched */}
           <div className="space-y-4">
             <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-teal-600" />
+              <CheckCircle2 className="w-5 h-5 text-blue-600" />
               Topics to Ask Your Doctor ({matchedRules.length} Matched Rules)
             </h3>
 
@@ -446,7 +447,7 @@ export default function AwarenessGuidePage() {
                         <span className="font-bold text-base text-slate-900">
                           {rule.title}
                         </span>
-                        <span className="text-[10px] bg-teal-50 text-teal-800 border border-teal-200 px-2 py-0.5 rounded font-mono">
+                        <span className="text-[10px] bg-blue-50 text-blue-800 border border-blue-200 px-2 py-0.5 rounded font-mono">
                           {rule.targetVaccineName}
                         </span>
                       </div>
@@ -456,7 +457,7 @@ export default function AwarenessGuidePage() {
                     </div>
 
                     {/* Why Shown Explanation */}
-                    <div className="bg-teal-50/70 border-l-3 border-teal-500 p-3 rounded-r-xl text-xs text-teal-950">
+                    <div className="bg-blue-50/70 border-l-3 border-blue-500 p-3 rounded-r-xl text-xs text-blue-950">
                       <strong>Why this topic appears: </strong>
                       {rule.whyShown}
                     </div>
@@ -480,7 +481,7 @@ export default function AwarenessGuidePage() {
                       </span>
                       <Link
                         to={`/vaccine-library/${rule.targetVaccineId}`}
-                        className="font-bold text-teal-700 hover:text-teal-900 flex items-center gap-1"
+                        className="font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1"
                       >
                         <span>View vaccine details</span>
                         <ArrowRight className="w-3 h-3" />
@@ -503,7 +504,7 @@ export default function AwarenessGuidePage() {
             </button>
             <Link
               to="/doctor-checklist"
-              className="px-6 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-xs transition-colors"
+              className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-xs transition-colors"
             >
               Continue to Interactive Doctor Visit Checklist
             </Link>

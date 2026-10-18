@@ -18,7 +18,7 @@ cd frontend && npm run dev
 
 Then open http://localhost:5173 and create an account.
 
-Requirements: Python 3.11+ and Node 20+. Everything is free and local: SQLite database, OpenStreetMap tiles, no paid APIs.
+Requirements: Python 3.11+ and Node 20+. The app uses SQLite locally; optional email alerts require an SMTP service configured by the operator.
 
 ## Tests
 
@@ -48,7 +48,10 @@ To update medical guidance, edit the JSON under `data/knowledge/<set>/`, update 
 - Provider, availability and price data is **demo data** (`data/demo/providers.json`), labelled everywhere it
   appears. With `DEMO_MODE=false` the app shows "provider data unavailable" instead.
 - There is no booking integration, so the app offers contact information and never shows a fake "Book" button.
-- No email service is connected. In demo mode the password-reset link is shown on screen.
+- Patient accounts can opt in to in-app and email vaccine-update alerts. Email requires SMTP configuration; it is disabled until configured. Password-reset emails are not connected yet.
+- Alert updates are curated in `frontend/src/data/updates.json`. An entry must have a unique `id`, `type` (`new` or `updated`), ISO `date`, ISO `reviewedAt`, HTTPS `sourceUrl`, `jurisdiction`, `engineVaccineId`, `title`, and `summary`. Its engine ID and jurisdiction must match the patient’s assessment. Add entries only after checking the official source, product status, and country guideline. The feed is empty until reviewed entries are ready; older entries without evidence metadata were removed.
+- The signed-in account checks the feed as it is used. To also deliver alerts while patients are signed out, schedule this one-shot job every 15 minutes on the backend host (run from the backend directory): `python -m app.notification_worker`. On Windows, configure Task Scheduler; on Linux, use a cron timer. Run one worker instance at a time.
+- India adult assessment currently covers Td vaccination during pregnancy only. Other Indian adult vaccine-market announcements will not produce personalized alerts until their country-specific assessment rules are added and reviewed.
 
 ## Configuration (environment variables)
 
@@ -59,6 +62,11 @@ To update medical guidance, edit the JSON under `data/knowledge/<set>/`, update 
 | `CORS_ORIGINS` | `http://localhost:5173,…` | Allowed browser origins |
 | `COOKIE_SECURE` | `false` | Set `true` when served over HTTPS |
 | `FRONTEND_URL` | `http://localhost:5173` | Used in password-reset links |
+| `SMTP_HOST` | empty | SMTP host for opt-in patient update alerts |
+| `SMTP_PORT` | `587` | SMTP port (STARTTLS) |
+| `SMTP_USERNAME` | empty | Optional SMTP username |
+| `SMTP_PASSWORD` | empty | Optional SMTP password |
+| `SMTP_FROM` | empty | Verified sender address; required to enable email alerts |
 
 ## Project layout
 

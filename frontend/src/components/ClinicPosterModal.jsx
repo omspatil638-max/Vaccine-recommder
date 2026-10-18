@@ -41,8 +41,8 @@ export default function ClinicPosterModal({ isOpen, onClose }) {
         </button>
 
         {/* Modal Header */}
-        <div className="flex items-center gap-2.5 mb-3 text-teal-700">
-          <div className="p-2 bg-teal-100 text-teal-800 rounded-lg">
+        <div className="flex items-center gap-2.5 mb-3 text-blue-700">
+          <div className="p-2 bg-blue-100 text-blue-800 rounded-lg">
             <QrCode className="w-5 h-5" />
           </div>
           <div>
@@ -52,7 +52,7 @@ export default function ClinicPosterModal({ isOpen, onClose }) {
         </div>
 
         {/* QR Code Container for Printing */}
-        <div id="printable-clinic-poster" className="bg-slate-50 border-2 border-dashed border-teal-300 rounded-xl p-5 text-center my-4">
+        <div id="printable-clinic-poster" className="bg-slate-50 border-2 border-dashed border-blue-300 rounded-xl p-5 text-center my-4">
           <div className="inline-block bg-white p-4 rounded-xl shadow-xs border border-slate-200">
             <QRCodeSVG
               value={`${targetUrl}/poster-landing`}
@@ -75,19 +75,19 @@ export default function ClinicPosterModal({ isOpen, onClose }) {
         </div>
 
         {/* Public URL Config Notice */}
-        <div className="text-xs text-slate-600 bg-teal-50 border border-teal-200 p-3 rounded-lg space-y-1 mb-4">
-          <div className="font-semibold text-teal-900 flex items-center justify-between">
+        <div className="text-xs text-slate-600 bg-blue-50 border border-blue-200 p-3 rounded-lg space-y-1 mb-4">
+          <div className="font-semibold text-blue-900 flex items-center justify-between">
             <span>Configured Public Site URL:</span>
             <button
               onClick={handleCopy}
-              className="inline-flex items-center gap-1 text-teal-700 hover:text-teal-900 font-semibold"
+              className="inline-flex items-center gap-1 text-blue-700 hover:text-blue-900 font-semibold"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
               {copied ? 'Copied' : 'Copy'}
             </button>
           </div>
-          <p className="text-[11px] text-teal-800/90 leading-relaxed">
-            Set <code className="bg-teal-100 px-1 rounded">VITE_PUBLIC_SITE_URL</code> in your deployment environment (e.g. Netlify/Vercel) to point QR codes directly to your live production domain.
+          <p className="text-[11px] text-blue-800/90 leading-relaxed">
+            Set <code className="bg-blue-100 px-1 rounded">VITE_PUBLIC_SITE_URL</code> in your deployment environment (e.g. Netlify/Vercel) to point QR codes directly to your live production domain.
           </p>
         </div>
 
