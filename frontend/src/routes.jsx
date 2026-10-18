@@ -34,6 +34,7 @@ export const router = createBrowserRouter([
       { path: 'faq', element: <FaqPage /> },
       { path: 'about', element: <AboutPage /> },
       { path: 'poster-landing', element: <PosterLandingPage /> },
+      { path: 'categories', element: <PosterLandingPage /> },
       { path: 'clinic-poster', element: <ClinicPosterPage /> },
       { path: 'scan', element: <Navigate to="/poster-landing" replace /> },
       { path: '*', element: <NotFoundPage /> },

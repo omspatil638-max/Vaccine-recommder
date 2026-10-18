@@ -55,7 +55,7 @@ export default function ClinicPosterModal({ isOpen, onClose }) {
         <div id="printable-clinic-poster" className="bg-slate-50 border-2 border-dashed border-teal-300 rounded-xl p-5 text-center my-4">
           <div className="inline-block bg-white p-4 rounded-xl shadow-xs border border-slate-200">
             <QRCodeSVG
-              value={targetUrl}
+              value={`${targetUrl}/poster-landing`}
               size={180}
               level="H"
               includeMargin={true}
@@ -64,13 +64,13 @@ export default function ClinicPosterModal({ isOpen, onClose }) {
             />
           </div>
           <h4 className="mt-3 font-bold text-slate-900 text-sm">
-            Scan with your Phone Camera
+            Scan to Open Category Portal & Checklist
           </h4>
           <p className="text-xs text-slate-600 mt-1 max-w-xs mx-auto">
-            Explore adult vaccines relevant to your age & health conditions on <strong>SmartVax</strong>.
+            Directly browse all vaccine categories by age, diabetes, pregnancy & doctor questions.
           </p>
           <div className="mt-2.5 px-3 py-1 bg-white border border-slate-300 rounded-md text-xs font-mono text-slate-700 select-all break-all inline-block">
-            {targetUrl}
+            {targetUrl}/poster-landing
           </div>
         </div>
 

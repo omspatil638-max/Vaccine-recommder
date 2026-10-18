@@ -102,10 +102,10 @@ export default function ClinicPosterPage() {
             />
           </div>
           <div className="mt-3 font-extrabold text-sm text-slate-900">
-            Scan with your Phone Camera
+            Scan to Open Vaccine Categories & Checklist
           </div>
           <p className="text-xs text-slate-600 mt-0.5">
-            Explore vaccines relevant to your age & health status
+            Directly browse categories by age, diabetes, pregnancy & doctor checklist
           </p>
           <div className="mt-2 text-[11px] font-mono text-slate-500 font-semibold select-all break-all">
             {landingUrl}
