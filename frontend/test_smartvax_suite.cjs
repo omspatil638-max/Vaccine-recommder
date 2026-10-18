@@ -29,14 +29,15 @@ async function runTestSuite() {
     { path: '/doctor-checklist', expectedText: 'Doctor Visit Checklist' },
     { path: '/faq', expectedText: 'Frequently Asked Questions' },
     { path: '/about', expectedText: 'About SmartVax India' },
-    { path: '/poster-landing', expectedText: 'Welcome to SmartVax' },
+    { path: '/poster-landing', expectedText: 'Adult Immunization Categories & Guide' },
     { path: '/clinic-poster', expectedText: 'Printable Clinic Awareness Poster' },
     { path: '/some-random-route', expectedText: '404 — Page Not Found' }
   ];
 
   for (const r of routes) {
     await page.goto(`http://localhost:5173${r.path}`);
-    const content = await page.content();
+    await page.waitForSelector('h1');
+    const content = await page.textContent('body');
     if (content.includes(r.expectedText)) {
       console.log(`[PASS] Route: ${r.path} rendered successfully with expected text.`);
     } else {
