@@ -266,6 +266,19 @@ export default function VaccineDetailPage() {
           </div>
         </div>
       </div>
+
+      <section className="grid overflow-hidden rounded-3xl border border-blue-200 bg-blue-50 sm:grid-cols-[1fr_240px]">
+        <div className="p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-blue-700">Your vaccine reading list</p>
+          <h2 className="mt-2 text-xl font-bold text-slate-950">Want to keep track of vaccine updates?</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Create an account or sign in to manage your health profile and update preferences. Discuss any vaccine decision with a qualified clinician.</p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link to="/signup" className="inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-800">Create your account</Link>
+            <Link to="/login" className="inline-flex items-center justify-center rounded-lg border border-blue-300 bg-white px-5 py-3 text-sm font-semibold text-blue-800 transition hover:bg-blue-100">Sign in</Link>
+          </div>
+        </div>
+        <img src="/images/vaccine-vial.svg" alt="Original illustration of a vaccine vial and syringe" className="hidden h-full min-h-52 w-full object-cover sm:block" />
+      </section>
     </div>
   );
 }

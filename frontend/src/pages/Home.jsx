@@ -12,8 +12,9 @@ const paths = [
 export default function Home() {
   return (
     <div className="space-y-16 pb-10 sm:space-y-20">
-      <section className="relative isolate overflow-hidden rounded-[1.75rem] bg-slate-950 px-6 py-12 text-white sm:px-10 sm:py-16 lg:px-14 lg:py-20">
+      <section className="relative isolate overflow-hidden rounded-[1.75rem] bg-slate-950 px-6 py-10 text-white sm:px-10 sm:py-12 lg:px-14 lg:py-14">
         <div className="absolute -right-16 -top-24 -z-10 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl" aria-hidden="true" />
+        <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="max-w-3xl">
           <p className="mb-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-200"><ShieldCheck className="h-4 w-4" aria-hidden="true" /> Adult vaccination guidance for India</p>
           <h1 className="max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">A clearer conversation about adult vaccines.</h1>
@@ -23,6 +24,13 @@ export default function Home() {
             <Link to="/vaccine-library" className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/25 px-5 py-3 font-semibold text-white transition hover:bg-white/10">Browse vaccines</Link>
           </div>
           <p className="mt-5 text-sm text-slate-400">No account needed. Your guide answers stay in this browser.</p>
+        </div>
+        <div className="relative">
+          <img src="/images/clinic-vaccination.svg" alt="Doctor and patient discussing vaccination, with a vial and syringe on the clinic table" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-2xl" />
+          <div className="absolute -bottom-4 -left-3 hidden w-40 overflow-hidden rounded-xl border-4 border-slate-950 shadow-xl sm:block">
+            <img src="/images/vaccine-vial.svg" alt="Illustration of a vaccine vial and syringe" className="block w-full" />
+          </div>
+        </div>
         </div>
       </section>
 
