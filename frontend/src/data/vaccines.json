@@ -1,0 +1,362 @@
+[
+  {
+    "id": "influenza-seasonal",
+    "name": "Influenza (Flu) Vaccine",
+    "genericName": "Inactivated Influenza Vaccine (Quadrivalent / Trivalent)",
+    "prevention": "Seasonal Influenza (Flu) caused by circulating Influenza A (H1N1, H3N2) and Influenza B strains.",
+    "whoMayBenefit": "All adults annually in India, especially older adults (≥50), pregnant women, individuals with diabetes, asthma/COPD, heart disease, chronic kidney disease, and healthcare workers.",
+    "ageConsiderations": "Recommended annually for all adults aged 18 and older. Peak influenza season in India varies by region (monsoon season in western/southern/central India, winter in northern India).",
+    "riskConsiderations": "Adults with diabetes, chronic respiratory conditions, cardiovascular illness, or immunocompromising states face heightened risk of severe flu complications and pneumonia.",
+    "previousVaccination": "Requires an annual single dose because circulating flu strains mutate and vaccine composition is updated yearly by WHO.",
+    "commonSideEffects": "Mild soreness or redness at the injection site, low-grade fever, muscle aches lasting 1–2 days.",
+    "precautions": "History of severe allergic reaction (anaphylaxis) to any previous flu vaccine. Mild egg allergy is generally not a contraindication for modern inactivated formulations, but consultation with a physician is advised.",
+    "officialSources": [
+      {
+        "title": "Association of Physicians of India (API) Adult Immunization Guidelines",
+        "url": "https://www.japi.org"
+      },
+      {
+        "title": "WHO India Influenza Guidelines & Global Influenza Surveillance",
+        "url": "https://www.who.int/india/health-topics/influenza"
+      },
+      {
+        "title": "MoHFW Guidance on Seasonal Influenza (Govt. of India)",
+        "url": "https://mohfw.gov.in"
+      }
+    ],
+    "lastReviewed": "2026-02-15",
+    "verificationStatus": "Verified: MoHFW / API / WHO Guidelines",
+    "category": "Routine Annual",
+    "tags": ["annual", "seniors", "diabetes", "asthma", "pregnancy", "healthcare-workers"],
+    "applicableAgeGroups": ["18-29", "30-49", "50-64", "65+"],
+    "healthConditions": ["diabetes", "respiratory", "cardiovascular", "kidney", "pregnancy"]
+  },
+  {
+    "id": "pneumococcal-conjugate-polysaccharide",
+    "name": "Pneumococcal Vaccine (PCV & PPSV23)",
+    "genericName": "Pneumococcal Conjugate (PCV13 / PCV15 / PCV20) & Polysaccharide (PPSV23)",
+    "prevention": "Invasive pneumococcal disease (Streptococcus pneumoniae) including bacterial pneumonia, meningitis, and bacteremia.",
+    "whoMayBenefit": "Adults aged 50 and above (and especially ≥65), and adults aged 18–49 with high-risk conditions such as diabetes, chronic heart disease, asthma/COPD, chronic kidney disease, cirrhosis, or smoking history.",
+    "ageConsiderations": "API India strongly recommends pneumococcal vaccination for all adults aged 50 and older, regardless of prior health conditions.",
+    "riskConsiderations": "Streptococcus pneumoniae is a leading cause of hospitalizations and adult mortality in India. Diabetics have a 3-4x higher risk of invasive pneumococcal pneumonia.",
+    "previousVaccination": "Schedule depends on whether PCV20 or sequential PCV13/15 followed by PPSV23 is administered. Doctor confirms previous dose history.",
+    "commonSideEffects": "Pain, swelling, or redness at the injection site, mild fatigue, low-grade temperature.",
+    "precautions": "Severe allergic reaction to any component of the vaccine or diphtheria-toxoid-containing conjugate.",
+    "officialSources": [
+      {
+        "title": "Association of Physicians of India (API) Consensus on Adult Pneumococcal Vaccination",
+        "url": "https://www.japi.org"
+      },
+      {
+        "title": "WHO Position Paper on Pneumococcal Vaccines",
+        "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals"
+      }
+    ],
+    "lastReviewed": "2026-01-20",
+    "verificationStatus": "Verified: API / WHO Guidelines",
+    "category": "High-Risk & Senior Health",
+    "tags": ["seniors", "pneumonia", "diabetes", "copd", "asthma", "heart-disease"],
+    "applicableAgeGroups": ["50-64", "65+"],
+    "healthConditions": ["diabetes", "respiratory", "cardiovascular", "kidney", "immunocompromised"]
+  },
+  {
+    "id": "tetanus-diphtheria-pertussis-tdap",
+    "name": "Tdap / Td (Tetanus, Diphtheria & Whooping Cough)",
+    "genericName": "Tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis vaccine (Tdap) / Tetanus-Diphtheria (Td)",
+    "prevention": "Tetanus (lockjaw), Diphtheria, and Pertussis (whooping cough, which can be transmitted to vulnerable newborns).",
+    "whoMayBenefit": "All adults needing routine 10-year booster. Pregnant women during each pregnancy (weeks 27–36) to protect newborns. Adults with wound/injury or contact with infants.",
+    "ageConsiderations": "Recommended for all adults across all age brackets. After childhood vaccination, immunity against tetanus and diphtheria wanes over 10 years.",
+    "riskConsiderations": "Tetanus is prevalent in soil and agricultural environments common across India. Pertussis immunity wanes, posing danger of transmission to unimmunized infants.",
+    "previousVaccination": "One dose of Tdap if never received previously as an adult, followed by a Td or Tdap booster every 10 years. During pregnancy, Tdap is given in the third trimester regardless of prior booster interval.",
+    "commonSideEffects": "Local injection site tenderness, mild headache, temporary fatigue.",
+    "precautions": "Encephalopathy within 7 days of previous pertussis vaccine; progressive neurological disorder.",
+    "officialSources": [
+      {
+        "title": "Ministry of Health & Family Welfare (MoHFW) National Immunization Schedule",
+        "url": "https://mohfw.gov.in"
+      },
+      {
+        "title": "FOGSI (Federation of Obstetric and Gynaecological Societies of India) Pregnancy Guidelines",
+        "url": "https://www.fogsi.org"
+      }
+    ],
+    "lastReviewed": "2026-02-10",
+    "verificationStatus": "Verified: MoHFW / FOGSI / API Guidelines",
+    "category": "Routine & Pregnancy",
+    "tags": ["routine", "pregnancy", "wound-care", "family-health", "booster"],
+    "applicableAgeGroups": ["18-29", "30-49", "50-64", "65+"],
+    "healthConditions": ["pregnancy", "general-adult"]
+  },
+  {
+    "id": "hepatitis-b",
+    "name": "Hepatitis B Vaccine",
+    "genericName": "Recombinant Hepatitis B Surface Antigen (HBsAg) Vaccine",
+    "prevention": "Hepatitis B virus (HBV) infection, chronic liver disease, cirrhosis, and hepatocellular carcinoma (liver cancer).",
+    "whoMayBenefit": "All adults through age 59, and adults 60+ with risk factors (diabetes, chronic liver disease, healthcare workers, hemodialysis patients, travelers, household contacts of HBV carriers).",
+    "ageConsiderations": "Recommended for all unvaccinated young and middle-aged adults in India. Routine childhood universal immunization was phased in during the mid-2000s in India, so many adults born before 2005 remain unvaccinated.",
+    "riskConsiderations": "India has an estimated 40 million chronic Hepatitis B carriers. Diabetics have a 2x higher risk of acute HBV infection due to blood glucose monitoring exposure.",
+    "previousVaccination": "A 3-dose series (0, 1, and 6 months) or an approved 2-dose adjuvant series. Prior anti-HBs titer testing can confirm if you already have protective immunity.",
+    "commonSideEffects": "Mild soreness at the injection site, transient low fever.",
+    "precautions": "Severe allergy to baker's yeast or any vaccine component.",
+    "officialSources": [
+      {
+        "title": "National Viral Hepatitis Control Program (NVHCP) - MoHFW India",
+        "url": "https://nvhcp.mohfw.gov.in"
+      },
+      {
+        "title": "Association of Physicians of India (API) Guidelines",
+        "url": "https://www.japi.org"
+      }
+    ],
+    "lastReviewed": "2026-01-15",
+    "verificationStatus": "Verified: MoHFW NVHCP / API Guidelines",
+    "category": "Routine & Liver Health",
+    "tags": ["liver-health", "diabetes", "healthcare-workers", "catch-up", "cancer-prevention"],
+    "applicableAgeGroups": ["18-29", "30-49", "50-64", "65+"],
+    "healthConditions": ["diabetes", "liver", "kidney", "healthcare"]
+  },
+  {
+    "id": "herpes-zoster-shingles",
+    "name": "Herpes Zoster (Shingles) Vaccine",
+    "genericName": "Recombinant Zoster Vaccine (RZV - Shingrix)",
+    "prevention": "Herpes Zoster (Shingles) and debilitating postherpetic neuralgia (chronic severe nerve pain).",
+    "whoMayBenefit": "Adults aged 50 years and older, and adults aged 19 and older who are or will be immunodeficient or immunosuppressed.",
+    "ageConsiderations": "Risk of shingles and postherpetic neuralgia rises dramatically after age 50 due to age-related decline in varicella-zoster virus-specific cell-mediated immunity.",
+    "riskConsiderations": "Over 90% of adults in India have had chickenpox in childhood and harbor the dormant virus in sensory nerve ganglia. Shingles can cause months or years of excruciating nerve pain.",
+    "previousVaccination": "Administered as a 2-dose series (dose 2 given 2 to 6 months after dose 1). Recommended regardless of whether you recall having chickenpox or had prior live zoster vaccine.",
+    "commonSideEffects": "Pain and swelling at injection site, myalgia, fatigue, headache, shivering (typically resolves in 2–3 days).",
+    "precautions": "Severe allergic reaction to any component of the vaccine. Delay if currently experiencing an acute shingles episode until rash heals.",
+    "officialSources": [
+      {
+        "title": "API Expert Consensus Statement on Shingles Vaccination in Indian Adults",
+        "url": "https://www.japi.org"
+      },
+      {
+        "title": "WHO Guidelines on Varicella and Zoster Vaccines",
+        "url": "https://www.who.int"
+      }
+    ],
+    "lastReviewed": "2026-02-01",
+    "verificationStatus": "Verified: API Guidelines",
+    "category": "Senior & Neurological Health",
+    "tags": ["seniors", "nerve-pain", "shingles", "50-plus"],
+    "applicableAgeGroups": ["50-64", "65+"],
+    "healthConditions": ["immunocompromised", "general-adult"]
+  },
+  {
+    "id": "human-papillomavirus-hpv",
+    "name": "HPV (Human Papillomavirus) Vaccine",
+    "genericName": "Recombinant Human Papillomavirus Vaccine (Quadrivalent / Nonavalent / Bivalent)",
+    "prevention": "Cervical cancer, anal cancer, vulvar/vaginal cancers, penile cancer, oropharyngeal cancers, and genital warts caused by oncogenic HPV strains (16, 18, etc.).",
+    "whoMayBenefit": "Females through age 26 (and up to age 45 based on clinical discussion), and males through age 26. In India, cervical cancer is the second most common cancer among women.",
+    "ageConsiderations": "Most effective when given before exposure to HPV, but adults up to age 45 may still benefit because the vaccine protects against multiple HPV types not yet contracted.",
+    "riskConsiderations": "India accounts for nearly one-fifth of global cervical cancer cases. Vaccination combined with screening dramatically cuts cancer incidence.",
+    "previousVaccination": "For adults starting vaccination at age 15 or older, a 3-dose schedule (0, 1–2, and 6 months) is required.",
+    "commonSideEffects": "Pain, redness, or swelling at injection site, dizziness/fainting immediately after injection (sit or lie down for 15 minutes), mild headache.",
+    "precautions": "Severe allergic reaction to yeast (for quadrivalent/9-valent). Not recommended during active pregnancy; can be completed postpartum.",
+    "officialSources": [
+      {
+        "title": "FOGSI Good Clinical Practice Recommendations on HPV Vaccination",
+        "url": "https://www.fogsi.org"
+      },
+      {
+        "title": "Indian Academy of Pediatrics (IAP) & MoHFW Working Group on HPV",
+        "url": "https://mohfw.gov.in"
+      },
+      {
+        "title": "WHO Position Paper on Human Papillomavirus Vaccines",
+        "url": "https://www.who.int"
+      }
+    ],
+    "lastReviewed": "2026-02-18",
+    "verificationStatus": "Verified: FOGSI / MoHFW / WHO Guidelines",
+    "category": "Cancer Prevention & Reproductive Health",
+    "tags": ["cervical-cancer", "women-health", "men-health", "young-adults", "cancer-prevention"],
+    "applicableAgeGroups": ["18-29", "30-49"],
+    "healthConditions": ["reproductive-health", "general-adult"]
+  },
+  {
+    "id": "typhoid-conjugate-tcv",
+    "name": "Typhoid Vaccine (TCV)",
+    "genericName": "Typhoid Conjugate Vaccine (TCV - Typbar-TCV / similar)",
+    "prevention": "Typhoid fever caused by Salmonella enterica serovar Typhi.",
+    "whoMayBenefit": "Adults living in or traveling across endemic areas of India, food handlers, lab workers, and adults who missed childhood conjugate vaccination.",
+    "ageConsiderations": "Typhoid remains endemic in many Indian urban and semi-urban localities. Conjugate vaccines provide longer-lasting immunity than older polysaccharide or oral vaccines.",
+    "riskConsiderations": "Food- and water-borne transmission risk is heightened during monsoon periods and in areas with intermittent water supply.",
+    "previousVaccination": "Single-dose conjugate vaccine provides durable protection (typically 5+ years). Older polysaccharide vaccines require boosters every 3 years.",
+    "commonSideEffects": "Mild localized pain, headache, transient fever.",
+    "precautions": "Acute severe febrile illness at time of appointment.",
+    "officialSources": [
+      {
+        "title": "National Technical Advisory Group on Immunization (NTAGI) - India",
+        "url": "https://mohfw.gov.in"
+      },
+      {
+        "title": "WHO Position Paper on Typhoid Conjugate Vaccines",
+        "url": "https://www.who.int"
+      }
+    ],
+    "lastReviewed": "2026-01-10",
+    "verificationStatus": "Verified: NTAGI / WHO Guidelines",
+    "category": "Endemic & Digestive Health",
+    "tags": ["endemic", "travel", "food-handlers", "routine"],
+    "applicableAgeGroups": ["18-29", "30-49", "50-64", "65+"],
+    "healthConditions": ["general-adult"]
+  },
+  {
+    "id": "rabies-prophylaxis",
+    "name": "Rabies Vaccine (Post-Exposure & Pre-Exposure)",
+    "genericName": "Purified Vero Cell Rabies Vaccine (PVRV) / Purified Chick Embryo Cell Vaccine (PCECV)",
+    "prevention": "Rabies viral infection (encephalomyelitis), which has a near 100% case fatality rate once clinical symptoms appear.",
+    "whoMayBenefit": "Pre-exposure: Veterinarians, animal handlers, wildlife researchers. Post-exposure: ANY individual with a dog, cat, monkey, or wild animal bite or scratch in India (Category II or III exposure).",
+    "ageConsiderations": "Applicable across all ages. In India, rabies post-exposure prophylaxis (PEP) must NEVER be delayed after an animal bite.",
+    "riskConsiderations": "India accounts for approximately one-third of the world's rabies deaths. Every animal bite should be immediately washed with soap and running water for 15 minutes, followed by medical evaluation for Rabies Vaccine and Rabies Immunoglobulin (RIG).",
+    "previousVaccination": "Post-exposure: 4-dose or 5-dose intramuscular schedule (Days 0, 3, 7, 14, 28) or approved intradermal (ID) regimen. If previously fully vaccinated, only 2 booster doses (Days 0 and 3) are needed without immunoglobulin.",
+    "commonSideEffects": "Mild pain, redness at injection site, transient headache.",
+    "precautions": "Rabies is 100% fatal once clinical symptoms begin; therefore there are NO absolute contraindications to post-exposure prophylaxis.",
+    "officialSources": [
+      {
+        "title": "National Rabies Control Programme (NRCP) Guidelines - MoHFW India",
+        "url": "https://ncdc.mohfw.gov.in"
+      },
+      {
+        "title": "WHO Guidelines on Rabies Immunization",
+        "url": "https://www.who.int"
+      }
+    ],
+    "lastReviewed": "2026-02-12",
+    "verificationStatus": "Verified: MoHFW NRCP Guidelines",
+    "category": "Critical Post-Exposure & Occupational",
+    "tags": ["animal-bite", "critical", "occupational", "travel", "emergency"],
+    "applicableAgeGroups": ["18-29", "30-49", "50-64", "65+"],
+    "healthConditions": ["animal-exposure", "general-adult"]
+  },
+  {
+    "id": "hepatitis-a",
+    "name": "Hepatitis A Vaccine",
+    "genericName": "Inactivated Hepatitis A Virus Vaccine",
+    "prevention": "Hepatitis A viral infection causing acute liver inflammation and jaundice.",
+    "whoMayBenefit": "Adults with chronic liver disease (Hepatitis B, C, cirrhosis), travelers, food handlers, men who have sex with men, and adults seeking personal protection who are anti-HAV negative.",
+    "ageConsiderations": "While many adults in India contracted subclinical Hep A in childhood, improving sanitation has created a growing pool of non-immune adults who are susceptible to severe adult hepatitis A.",
+    "riskConsiderations": "Adult Hepatitis A is significantly more severe than childhood infection, with prolonged jaundice and occasional acute liver failure.",
+    "previousVaccination": "2-dose series separated by 6 to 12 months.",
+    "commonSideEffects": "Mild soreness at injection site, headache.",
+    "precautions": "Severe allergy to previous dose or neomycin.",
+    "officialSources": [
+      {
+        "title": "NVHCP & API Guidelines on Viral Hepatitis",
+        "url": "https://nvhcp.mohfw.gov.in"
+      }
+    ],
+    "lastReviewed": "2026-01-28",
+    "verificationStatus": "Verified: API / NVHCP Guidelines",
+    "category": "Liver Health & Travel",
+    "tags": ["liver-health", "travel", "food-safety"],
+    "applicableAgeGroups": ["18-29", "30-49", "50-64"],
+    "healthConditions": ["liver"]
+  },
+  {
+    "id": "mmr-adult-catchup",
+    "name": "MMR (Measles, Mumps, Rubella) Catch-Up",
+    "genericName": "Live Attenuated Measles, Mumps, and Rubella Vaccine",
+    "prevention": "Measles, Mumps (orchitis risk in adult males), and Congenital Rubella Syndrome (CRS) in unborn babies.",
+    "whoMayBenefit": "Adults born without documentation of two childhood doses, healthcare workers, college students, and non-pregnant women of childbearing age who are rubella antibody-negative.",
+    "ageConsiderations": "Adults who did not receive MMR or missed second dose in childhood remain susceptible to outbreak transmission.",
+    "riskConsiderations": "Rubella infection in pregnant women causes severe birth defects (deafness, cataracts, cardiac defects). Mumps in adult males can cause painful orchitis (testicular inflammation).",
+    "previousVaccination": "1 or 2 doses spaced at least 28 days apart depending on risk category.",
+    "commonSideEffects": "Mild fever, transient faint rash, joint soreness.",
+    "precautions": "CONTRAINDICATED during active pregnancy and in severely immunocompromised individuals (live virus vaccine). Avoid pregnancy for 28 days following vaccination.",
+    "officialSources": [
+      {
+        "title": "National Immunization Schedule & NTAGI Rubella Elimination Guidelines",
+        "url": "https://mohfw.gov.in"
+      },
+      {
+        "title": "FOGSI Guidelines on Pre-Conceptional Care",
+        "url": "https://www.fogsi.org"
+      }
+    ],
+    "lastReviewed": "2026-02-05",
+    "verificationStatus": "Verified: MoHFW / FOGSI Guidelines",
+    "category": "Catch-Up & Reproductive Safety",
+    "tags": ["catch-up", "women-health", "men-health", "pregnancy-prep", "live-vaccine"],
+    "applicableAgeGroups": ["18-29", "30-49"],
+    "healthConditions": ["reproductive-health"]
+  },
+  {
+    "id": "varicella-chickenpox",
+    "name": "Varicella (Chickenpox) Vaccine",
+    "genericName": "Live Attenuated Varicella Virus Vaccine",
+    "prevention": "Chickenpox (Varicella) infection and associated adult complications such as varicella pneumonia and secondary bacterial infections.",
+    "whoMayBenefit": "Adults without evidence of immunity (no past history of chickenpox or negative IgG serology), particularly healthcare workers, teachers, household contacts of immunocompromised individuals, and women of childbearing age prior to pregnancy.",
+    "ageConsiderations": "Chickenpox is substantially more severe in adults than children, with higher rates of hospitalization and pneumonia.",
+    "riskConsiderations": "Chickenpox during pregnancy poses severe risks of congenital varicella syndrome to the fetus and life-threatening varicella pneumonia in the mother.",
+    "previousVaccination": "2 doses given 4 to 8 weeks apart.",
+    "commonSideEffects": "Soreness at injection site, slight fever, mild chickenpox-like rash near injection site.",
+    "precautions": "CONTRAINDICATED in pregnancy and severely immunocompromised persons. Avoid pregnancy for 1 month post-vaccination.",
+    "officialSources": [
+      {
+        "title": "API Adult Immunization Recommendations",
+        "url": "https://www.japi.org"
+      }
+    ],
+    "lastReviewed": "2026-01-25",
+    "verificationStatus": "Verified: API Guidelines",
+    "category": "Catch-Up & Immunity",
+    "tags": ["catch-up", "healthcare-workers", "pre-pregnancy", "live-vaccine"],
+    "applicableAgeGroups": ["18-29", "30-49"],
+    "healthConditions": ["healthcare", "reproductive-health"]
+  },
+  {
+    "id": "meningococcal-conjugate",
+    "name": "Meningococcal Vaccine (MenACWY)",
+    "genericName": "Meningococcal (Groups A, C, Y, W-135) Polysaccharide / Conjugate Vaccine",
+    "prevention": "Neisseria meningitidis bacterial meningitis and septicemia.",
+    "whoMayBenefit": "Travelers to endemic regions (African meningitis belt, pilgrims to Hajj/Umrah in Saudi Arabia where it is mandatory), individuals with anatomical/functional asplenia, complement component deficiency, and microbiologists.",
+    "ageConsiderations": "Given to adults with specific risk factors or travel requirements.",
+    "riskConsiderations": "Meningococcal disease progresses rapidly within hours and causes permanent neurological impairment or limb loss.",
+    "previousVaccination": "Single dose for travel; boosters every 5 years if ongoing risk.",
+    "commonSideEffects": "Pain at injection site, mild headache, fatigue.",
+    "precautions": "Severe allergic reaction to previous dose.",
+    "officialSources": [
+      {
+        "title": "Ministry of External Affairs & MoHFW Hajj Pilgrimage Health Advisory",
+        "url": "https://mohfw.gov.in"
+      },
+      {
+        "title": "WHO International Travel and Health Guidance",
+        "url": "https://www.who.int"
+      }
+    ],
+    "lastReviewed": "2026-02-14",
+    "verificationStatus": "Verified: MoHFW / WHO Guidelines",
+    "category": "Travel & High-Risk",
+    "tags": ["travel", "hajj-pilgrims", "asplenia", "high-risk"],
+    "applicableAgeGroups": ["18-29", "30-49", "50-64", "65+"],
+    "healthConditions": ["asplenia", "travel"]
+  },
+  {
+    "id": "japanese-encephalitis",
+    "name": "Japanese Encephalitis (JE) Vaccine",
+    "genericName": "Live Attenuated SA 14-14-2 / Inactivated JE Vaccine",
+    "prevention": "Japanese Encephalitis, a mosquito-borne flavivirus infection causing brain swelling and severe neurological sequelae.",
+    "whoMayBenefit": "Adults living in or stationed for extended periods in JE-endemic districts in India (e.g. parts of Assam, Uttar Pradesh, Bihar, West Bengal, Tamil Nadu), rural agricultural workers, and travelers with prolonged outdoor exposure in rural endemic zones.",
+    "ageConsiderations": "While primarily prioritized for children under Universal Immunization Programme (UIP), adult JE vaccination campaigns have been conducted in high-burden endemic districts across India.",
+    "riskConsiderations": "Case-fatality rate is approximately 20% to 30%, and 30% to 50% of survivors suffer permanent intellectual, behavioral, or neurological deficits.",
+    "previousVaccination": "Single dose for live attenuated; 2-dose series for inactivated vaccine.",
+    "commonSideEffects": "Local tenderness, headache, low fever.",
+    "precautions": "Live attenuated version is contraindicated during pregnancy and in immunocompromised individuals.",
+    "officialSources": [
+      {
+        "title": "National Center for Vector Borne Diseases Control (NCVBDC) - MoHFW India",
+        "url": "https://ncvbdc.mohfw.gov.in"
+      }
+    ],
+    "lastReviewed": "2026-01-30",
+    "verificationStatus": "Verified: MoHFW NCVBDC Guidelines",
+    "category": "Vector-Borne & Regional",
+    "tags": ["vector-borne", "endemic-districts", "rural", "travel"],
+    "applicableAgeGroups": ["18-29", "30-49", "50-64"],
+    "healthConditions": ["travel", "regional-endemic"]
+  }
+]

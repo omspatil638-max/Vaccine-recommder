@@ -1,0 +1,58 @@
+[
+  {
+    "id": "faq-1",
+    "category": "General Awareness",
+    "question": "Can adults need vaccines after childhood?",
+    "answer": "Yes. This is one of the most common misconceptions in India. Protection from certain childhood vaccines (such as tetanus, diphtheria, and pertussis) wanes gradually over 10 to 15 years. Furthermore, some vaccines are specifically designed for adults as their immune system ages (such as shingles and pneumococcal vaccines for adults aged 50 and older), or to protect against emerging threats, occupational hazards, or chronic illnesses like diabetes and heart disease.",
+    "source": "Association of Physicians of India (API) Adult Immunization Guidelines & WHO"
+  },
+  {
+    "id": "faq-2",
+    "category": "General Awareness",
+    "question": "Do healthy adults need to consider vaccination?",
+    "answer": "Even healthy adults can benefit from learning about vaccination. For example, annual seasonal influenza vaccines protect working adults against missed work and prevent spreading infection to elderly parents and young infants at home. Additionally, young adults who missed vaccines like Hepatitis B or HPV during their school years can still benefit from catch-up doses to prevent future chronic liver disease or cervical cancer.",
+    "source": "MoHFW India & National Technical Advisory Group on Immunization (NTAGI)"
+  },
+  {
+    "id": "faq-3",
+    "category": "General Awareness",
+    "question": "Are all vaccines necessary for everyone?",
+    "answer": "No. Adult vaccination is personalized and risk-stratified. You do not need every vaccine listed in medical textbooks. Which vaccines are relevant to you depends on your age, specific chronic conditions (like diabetes, asthma, or kidney disease), pregnancy status, occupation (such as healthcare or animal handling), and travel plans. A qualified physician helps determine exactly which vaccines apply to your specific health profile.",
+    "source": "API Consensus & MoHFW Guidance"
+  },
+  {
+    "id": "faq-4",
+    "category": "Records & History",
+    "question": "What if I do not remember my childhood vaccination history or have lost my records?",
+    "answer": "This is extremely common in India because childhood immunization cards were traditionally paper-based and often lost over decades. In many cases, an unrecorded history is NOT treated as a missing dose. For diseases like Hepatitis B, Rubella, or Chickenpox, your physician can order simple antibody blood tests (serology titers) to check if you are already immune. For other routine vaccines like Tdap or annual flu shots, safe schedules exist that do not require past childhood records.",
+    "source": "API Clinical Practice Guidelines"
+  },
+  {
+    "id": "faq-5",
+    "category": "Safety & Side Effects",
+    "question": "What side effects can occur after adult vaccination?",
+    "answer": "Most adult vaccine side effects are mild, harmless, and resolve within 24 to 48 hours. The most common reaction is local soreness, swelling, or redness at the injection site in the arm. Some people experience mild fatigue, a low-grade fever, or body aches, which is actually a healthy sign that your immune system is responding to build protective antibodies. Severe allergic reactions (anaphylaxis) are exceedingly rare (roughly 1 in a million doses) and clinic staff are trained to manage them.",
+    "source": "WHO Vaccine Safety Guidelines & MoHFW Immunization Division"
+  },
+  {
+    "id": "faq-6",
+    "category": "Where to Get Vaccinated",
+    "question": "Where can adults in India receive these vaccines and what is the approximate cost?",
+    "answer": "Adult vaccines are available across India through government medical colleges, district hospitals, primary health centers (for select vaccines like Td, Rabies, and COVID-19 at low or zero cost), and private clinics, hospitals, and diagnostic chain centers. Costs vary: routine tetanus-diphtheria (Td) and anti-rabies shots are highly subsidized in government facilities, while vaccines like HPV, Shingles, and Pneumococcal in the private sector range from moderate to higher pricing depending on the manufacturer and formulation.",
+    "source": "National Health Mission (NHM) & Private Healthcare Portals"
+  },
+  {
+    "id": "faq-7",
+    "category": "Professional Consultation",
+    "question": "Why should I confirm personal suitability with a healthcare professional?",
+    "answer": "SmartVax is an educational awareness platform, not an autonomous prescribing system. Only a licensed doctor can evaluate your complete medical history, check for contraindications (such as pregnancy precautions for live vaccines or allergies to specific components), check current medications that might suppress your immune system, and prescribe the correct dose and formulation.",
+    "source": "Medical Council of India / National Medical Commission Ethics Code"
+  },
+  {
+    "id": "faq-8",
+    "category": "Privacy & Data",
+    "question": "How does SmartVax handle my questionnaire responses?",
+    "answer": "SmartVax strictly respects your privacy. All questionnaire answers on the Awareness Guide are processed locally inside your web browser. SmartVax does NOT require a login, does NOT ask for your name, phone number, or Aadhaar number, and never transmits your private health answers to any remote database, marketing tracker, or third-party service.",
+    "source": "SmartVax Privacy by Design Architecture"
+  }
+]
