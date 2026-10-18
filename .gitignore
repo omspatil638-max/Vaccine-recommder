@@ -1,0 +1,12 @@
+# Local reference material (not part of the deployable app)
+repo_referernce/
+
+# Node
+node_modules/
+
+# Build output
+frontend/dist/
+
+# OS / editor
+.DS_Store
+Thumbs.db
