@@ -58,6 +58,15 @@ export async function request(path, { method = 'GET', body, signal } = {}) {
   const isJson = res.headers.get('content-type')?.includes('application/json');
   const text = res.status === 204 ? '' : await res.text();
   let data = null;
+  if (res.status !== 204 && !isJson) {
+    // Netlify's SPA fallback can return index.html with HTTP 200 for an API
+    // path when the backend isn't connected. Never treat that as a successful
+    // auth or health-data response (which previously sent signup back to login).
+    throw new ApiError(
+      res.status,
+      'The SmartVax account service is not connected right now. Your account was not created. Please try again later.',
+    );
+  }
   if (isJson && text) {
     try {
       data = JSON.parse(text);
