@@ -19,6 +19,7 @@ import PrivacyPage from './pages/PrivacyPage';
 import PosterLandingPage from './pages/PosterLandingPage';
 import ClinicPosterPage from './pages/ClinicPosterPage';
 import RemindersPage from './pages/RemindersPage';
+import VaccineFinderPage from './pages/VaccineFinderPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { LoginPage, SignupPage, ForgotPasswordPage, ResetPasswordPage } from './pages/public/AuthPages';
 import SourcesPage from './pages/public/SourcesPage';
@@ -52,6 +53,7 @@ export const router = createBrowserRouter([
       { path: 'health-conditions', element: <HealthConditionsPage /> },
       { path: 'vaccine-library', element: <VaccineLibraryPage /> },
       { path: 'vaccine-library/:id', element: <VaccineDetailPage /> },
+      { path: 'vaccine-finder', element: <VaccineFinderPage /> },
       { path: 'awareness-guide', element: <AwarenessGuidePage /> },
       { path: 'doctor-checklist', element: <DoctorChecklistPage /> },
       { path: 'faq', element: <FaqPage /> },

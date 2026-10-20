@@ -7,6 +7,7 @@ const primary = [
   { to: '/', label: 'Home', end: true },
   { to: '/awareness-guide', label: 'Guided check' },
   { to: '/vaccine-library', label: 'Vaccine library' },
+  { to: '/vaccine-finder', label: 'Find a centre' },
   { to: '/age-groups', label: 'By age' },
   { to: '/health-conditions', label: 'Health situations' },
 ];
