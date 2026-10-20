@@ -3,6 +3,16 @@
   publish = "dist"
   command = "npm run build"
 
+# Serverless functions (free tier) power the email-alert pipeline:
+#   subscribe  — stores a patient's email (Netlify Blobs)
+#   announce   — admin-only; emails all subscribers about a new vaccine (Resend)
+#   updates    — public feed of announcements for the "What's new" section
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# SPA fallback — must come AFTER the reserved /.netlify/functions/* paths,
+# which Netlify serves before applying these redirects.
 [[redirects]]
   from = "/*"
   to = "/index.html"
