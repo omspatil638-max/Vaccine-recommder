@@ -1,5 +1,10 @@
 const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '/api/v1';
 
+// When no real backend is deployed (e.g. a static Netlify site), the app runs
+// against an in-browser mock backend so accounts and the assessment still work.
+// Set VITE_USE_MOCK=false to talk to a real backend instead.
+const USE_MOCK = (import.meta.env.VITE_USE_MOCK ?? 'true') !== 'false';
+
 export class ApiError extends Error {
   constructor(status, message, fieldErrors = {}) {
     super(message);
@@ -37,6 +42,13 @@ function parseError(status, data) {
  * response bodies, since they can contain health information.
  */
 export async function request(path, { method = 'GET', body, signal } = {}) {
+  if (USE_MOCK) {
+    // Imported lazily to avoid a top-level cycle (mockBackend imports ApiError).
+    const { mockRequest } = await import('./mockBackend');
+    if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
+    return mockRequest(method, path, body);
+  }
+
   const headers = {};
   if (body !== undefined) headers['Content-Type'] = 'application/json';
   if (method !== 'GET') headers['X-CSRF-Token'] = csrfToken();
