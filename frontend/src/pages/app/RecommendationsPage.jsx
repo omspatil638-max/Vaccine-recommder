@@ -7,6 +7,7 @@ import Notice from '../../components/ui/Notice';
 import PageHeader from '../../components/ui/PageHeader';
 import { ProvenanceLine } from '../../components/ui/Provenance';
 import RecommendationRow from '../../features/results/RecommendationRow';
+import AlertPermission from '../../features/results/AlertPermission';
 import { StatusStrip } from '../../features/results/ResultMoment';
 import { api } from '../../lib/api';
 import { formatDateTime } from '../../lib/format';
@@ -172,6 +173,7 @@ export default function RecommendationsPage() {
               );
             })}
           </div>
+          {!runId && <AlertPermission />}
         </>
       )}
 

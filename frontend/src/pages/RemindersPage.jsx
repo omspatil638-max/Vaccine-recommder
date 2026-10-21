@@ -9,103 +9,11 @@ import {
   ShieldCheck,
   ArrowRight,
   Clock,
-  CheckCircle2,
-  Loader2,
-  AlertCircle,
 } from 'lucide-react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import MedicalDisclaimer from '../components/MedicalDisclaimer';
 import localUpdates from '../data/updates.json';
 import vaccines from '../data/vaccines.json';
-
-/**
- * Standalone email-alert signup. Posts to the Netlify Function `subscribe`,
- * which stores the address server-side (Netlify Blobs) so the admin `announce`
- * function can email everyone automatically when a new vaccine arrives.
- * Works only on the deployed Netlify site (the function isn't running in local
- * `vite dev`); it fails gracefully with a clear message otherwise.
- */
-function EmailAlertSignup() {
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
-  const [message, setMessage] = useState('');
-
-  const submit = async (e) => {
-    e.preventDefault();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setStatus('error');
-      setMessage('Please enter a valid email address.');
-      return;
-    }
-    setStatus('submitting');
-    try {
-      const res = await fetch('/.netlify/functions/subscribe', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-      if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || 'Could not subscribe.');
-      setStatus('success');
-    } catch (err) {
-      setStatus('error');
-      setMessage(
-        err.message === 'Failed to fetch'
-          ? 'Email alerts work on the published site. The alert service is not reachable here.'
-          : err.message,
-      );
-    }
-  };
-
-  if (status === 'success') {
-    return (
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 flex items-start gap-2.5">
-        <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600" />
-        <p className="text-sm text-emerald-800">
-          You’re subscribed. We’ll email <strong>{email}</strong> automatically whenever a new adult
-          vaccine arrives in India. Unsubscribe anytime.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <form onSubmit={submit} className="rounded-xl border border-slate-200 bg-white p-5">
-      <div className="flex items-center gap-2 mb-1">
-        <Mail className="h-4.5 w-4.5 text-blue-700" />
-        <h3 className="font-semibold text-slate-900">Get email alerts — no account needed</h3>
-      </div>
-      <p className="text-xs text-slate-600 mb-3">
-        Prefer email only? Subscribe and we’ll automatically email you when a new vaccine reaches the
-        Indian market.
-      </p>
-      <div className="flex flex-col sm:flex-row gap-2">
-        <input
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@example.com"
-          className="flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
-        />
-        <button
-          type="submit"
-          disabled={status === 'submitting'}
-          className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-60"
-        >
-          {status === 'submitting' ? <Loader2 className="h-4 w-4 animate-spin" /> : <BellRing className="h-4 w-4" />}
-          Notify me
-        </button>
-      </div>
-      {status === 'error' && (
-        <p className="mt-2 flex items-start gap-1.5 text-xs text-rose-700">
-          <AlertCircle className="h-3.5 w-3.5 shrink-0 mt-0.5" />
-          {message}
-        </p>
-      )}
-      <p className="mt-2 text-[11px] text-slate-500">Free · we never sell your email · unsubscribe anytime.</p>
-    </form>
-  );
-}
 
 function formatDate(iso) {
   try {
@@ -205,11 +113,6 @@ export default function RemindersPage() {
               </div>
             </div>
           </section>
-
-          {/* Email-only alerts (no account) */}
-          <div className="mt-6">
-            <EmailAlertSignup />
-          </div>
 
           {/* How it works */}
           <div className="mt-8">

@@ -143,7 +143,7 @@ export default function RecommendationRow({ result }) {
       </div>
 
       <div className="flex flex-wrap gap-x-5 md:col-start-2 md:row-start-2 md:flex-col md:self-start">
-        {actionable && <RowLink to={`/providers?vaccine=${result.vaccineId}`}>Find providers</RowLink>}
+        {actionable && <RowLink to={`/vaccine-finder?vaccine=${result.vaccineId}`}>Where to get it near you</RowLink>}
         {result.status === 'INSUFFICIENT_INFORMATION' && (
           <RowLink to="/start/history?return=review">Add information</RowLink>
         )}

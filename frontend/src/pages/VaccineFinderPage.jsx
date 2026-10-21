@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import {
   MapPin,
   IndianRupee,
@@ -51,7 +51,11 @@ const CENTER_TYPES = [
 ];
 
 export default function VaccineFinderPage() {
-  const [selectedId, setSelectedId] = useState(vaccines[0]?.id || '');
+  const [params] = useSearchParams();
+  const preselected = params.get('vaccine');
+  const [selectedId, setSelectedId] = useState(
+    vaccines.some((v) => v.id === preselected) ? preselected : vaccines[0]?.id || '',
+  );
   const [city, setCity] = useState('');
   const [geoStatus, setGeoStatus] = useState('idle'); // idle | locating | error
 
