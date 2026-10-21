@@ -20,6 +20,7 @@ import PosterLandingPage from './pages/PosterLandingPage';
 import ClinicPosterPage from './pages/ClinicPosterPage';
 import RemindersPage from './pages/RemindersPage';
 import VaccineFinderPage from './pages/VaccineFinderPage';
+import AdminAnnouncePage from './pages/AdminAnnouncePage';
 import NotFoundPage from './pages/NotFoundPage';
 import { LoginPage, SignupPage, ForgotPasswordPage, ResetPasswordPage } from './pages/public/AuthPages';
 import SourcesPage from './pages/public/SourcesPage';
@@ -54,6 +55,7 @@ export const router = createBrowserRouter([
       { path: 'vaccine-library', element: <VaccineLibraryPage /> },
       { path: 'vaccine-library/:id', element: <VaccineDetailPage /> },
       { path: 'vaccine-finder', element: <VaccineFinderPage /> },
+      { path: 'admin', element: <AdminAnnouncePage /> },
       { path: 'awareness-guide', element: <AwarenessGuidePage /> },
       { path: 'doctor-checklist', element: <DoctorChecklistPage /> },
       { path: 'faq', element: <FaqPage /> },
