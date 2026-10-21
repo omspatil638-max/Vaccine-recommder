@@ -10,12 +10,40 @@
  * Body: { "title": "...", "summary": "...", "type": "new"|"updated",
  *         "vaccineId": "hpv" (optional), "url": "https://..." (optional) }
  *
- * Email sending requires the RESEND_API_KEY env var (free Resend account).
- * Without it, the announcement is still saved and shown on the site; the
+ * Email delivery (choose one, both free):
+ *   • SMTP (recommended — sends to ANY address): set SMTP_HOST, SMTP_PORT,
+ *     SMTP_USER, SMTP_PASS (e.g. Gmail app password, or Brevo SMTP key),
+ *     and ALERT_FROM. Works to any recipient, no domain needed.
+ *   • Resend: set RESEND_API_KEY (only delivers to your own Resend address
+ *     until you verify a domain).
+ * Without either, the announcement is still saved and shown on the site; the
  * response reports emailConfigured:false so you know email was skipped.
  */
 import { getStore } from '@netlify/blobs';
 import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
+
+// Build an email sender from whichever provider is configured.
+// SMTP (nodemailer) is preferred because it delivers to ANY recipient.
+function makeSender() {
+  if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
+    const port = Number(process.env.SMTP_PORT || 587);
+    const transport = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port,
+      secure: port === 465,
+      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+    });
+    const from = process.env.ALERT_FROM || process.env.SMTP_USER;
+    return { kind: 'smtp', send: (to, subject, html) => transport.sendMail({ from, to, subject, html }) };
+  }
+  if (process.env.RESEND_API_KEY) {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const from = process.env.ALERT_FROM || 'SmartVax India <onboarding@resend.dev>';
+    return { kind: 'resend', send: (to, subject, html) => resend.emails.send({ from, to, subject, html }) };
+  }
+  return null;
+}
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -85,25 +113,35 @@ export default async (req) => {
 
   let sent = 0;
   let failed = 0;
-  const emailConfigured = Boolean(process.env.RESEND_API_KEY);
+  let lastError = null;
+  const sender = makeSender();
+  const emailConfigured = Boolean(sender);
 
-  if (emailConfigured && subscribers.length) {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    const from = process.env.ALERT_FROM || 'SmartVax India <onboarding@resend.dev>';
+  if (sender && subscribers.length) {
     const siteUrl = (process.env.SITE_URL || process.env.URL || '').replace(/\/$/, '');
     const html = emailHtml(update, siteUrl);
 
     for (const s of subscribers) {
       try {
-        await resend.emails.send({ from, to: s.email, subject: `SmartVax: ${title}`, html });
+        await sender.send(s.email, `SmartVax: ${title}`, html);
         sent += 1;
-      } catch {
+      } catch (err) {
         failed += 1;
+        lastError = err?.message || String(err);
       }
-      // Stay under Resend's free-tier rate limit (2 requests/sec).
-      await new Promise((r) => setTimeout(r, 600));
+      // Gentle pacing to stay under free-tier rate limits.
+      await new Promise((r) => setTimeout(r, 400));
     }
   }
 
-  return json({ ok: true, update, subscribers: subscribers.length, sent, failed, emailConfigured });
+  return json({
+    ok: true,
+    update,
+    subscribers: subscribers.length,
+    sent,
+    failed,
+    emailConfigured,
+    provider: sender?.kind ?? null,
+    ...(lastError ? { lastError } : {}),
+  });
 };

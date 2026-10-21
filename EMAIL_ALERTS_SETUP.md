@@ -26,26 +26,40 @@ Email is sent with **Resend** (free tier: 3,000 emails/month).
 ## One-time setup
 
 ### 1. Get a free Resend API key
-1. Create a free account at **https://resend.com**.
-2. Go to **API Keys → Create API Key**, copy it (starts with `re_`).
-3. (For emailing *real* patient addresses) add and verify your sending domain
-   under **Domains**. Until you verify a domain, Resend only lets you email
-   **your own** account address — fine for testing, not for real patients.
+You can send email two ways. **Option A (Gmail SMTP) is recommended** because it
+delivers to **any** email address (your teacher's, a patient's) with no domain.
 
-### 2. Add environment variables in Netlify
-**Site configuration → Environment variables → Add a variable:**
+### Option A — Gmail (sends to ANY address, free, no domain) ✅
+1. Use a Gmail account. Turn on **2-Step Verification**: Google Account →
+   Security → 2-Step Verification.
+2. Create an **App Password**: Google Account → Security → **App passwords** →
+   app "Mail" → it gives a **16-character password** (e.g. `abcd efgh ijkl mnop`).
+   Copy it (remove the spaces).
+3. In **Netlify → Site configuration → Environment variables**, add:
 
-| Key              | Value | Needed for |
-|------------------|-------|------------|
-| `RESEND_API_KEY` | your `re_...` key | sending email |
-| `ADMIN_TOKEN`    | any long random secret you choose | protecting `announce` |
-| `ALERT_FROM`     | e.g. `SmartVax India <alerts@yourdomain.in>` | the "from" address (must be a verified Resend domain). Omit to use Resend's test sender `onboarding@resend.dev`. |
-| `SITE_URL`       | e.g. `https://your-site.netlify.app` | links inside the email |
+| Key | Value |
+|-----|-------|
+| `SMTP_HOST` | `smtp.gmail.com` |
+| `SMTP_PORT` | `465` |
+| `SMTP_USER` | your full Gmail address |
+| `SMTP_PASS` | the 16-character app password (no spaces) |
+| `ALERT_FROM` | `SmartVax India <your-gmail@gmail.com>` |
+| `ADMIN_TOKEN` | any long secret you choose |
 
-Then **redeploy** so the functions pick up the variables.
+4. **Redeploy** (Deploys → Trigger deploy). Done — emails now reach any address.
 
-> Collecting subscribers works **without any key**. Email is only *sent* once
-> `RESEND_API_KEY` is set — until then, `announce` still saves the update and the
+> Brevo works the same way: `SMTP_HOST=smtp-relay.brevo.com`, `SMTP_PORT=587`,
+> `SMTP_USER`/`SMTP_PASS` from Brevo's SMTP settings.
+
+### Option B — Resend (only your own address until you verify a domain)
+1. Create a free account at **https://resend.com**, make an API key (`re_...`).
+2. In Netlify add `RESEND_API_KEY`, `ADMIN_TOKEN`, optional `ALERT_FROM`/`SITE_URL`.
+3. Without a verified domain, Resend only delivers to **your own** Resend email.
+
+If **both** SMTP and Resend are set, SMTP (Option A) is used.
+
+> Collecting subscribers works **without any key**. Email is only *sent* once a
+> provider is configured — until then, `announce` still saves the update and the
 > website shows it, and the response says `emailConfigured: false`.
 
 ### 3. Announce a new vaccine (this triggers the emails)
