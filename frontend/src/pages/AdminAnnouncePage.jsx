@@ -79,13 +79,17 @@ export default function AdminAnnouncePage() {
                   <li>Subscribers on the list: <strong>{result?.subscribers ?? 0}</strong></li>
                   <li>Emails sent: <strong>{result?.sent ?? 0}</strong>{result?.failed ? `, failed: ${result.failed}` : ''}</li>
                   <li>Email service configured: <strong>{result?.emailConfigured ? 'Yes' : 'No'}</strong></li>
+                  {result?.provider && <li>Sending via: <strong>{result.provider === 'smtp' ? 'SMTP (Gmail/Brevo)' : 'Resend'}</strong></li>}
                 </ul>
                 <p className="mt-3 text-xs text-emerald-800">
-                  {result?.emailConfigured
-                    ? result?.sent > 0
-                      ? 'Check your inbox and spam folder. (Without a verified Resend domain, email only arrives at your own Resend account address.)'
-                      : 'No subscribers yet — subscribe an email first (turn on alerts in an account, or the reminders page).'
-                    : 'RESEND_API_KEY isn’t active. Add it in Netlify → Environment variables and redeploy.'}
+                  {!result?.emailConfigured
+                    ? 'No email provider is active. Add SMTP (Gmail) or Resend env vars in Netlify and redeploy.'
+                    : result?.sent === 0
+                      ? 'No subscribers yet — subscribe an email first (turn on alerts in an account, or the reminders page).'
+                      : result?.provider === 'smtp'
+                        ? 'Sent to every subscriber. Check the inbox (and spam folder) of each subscribed email — SMTP delivers to any address.'
+                        : 'Sent. Note: without a verified Resend domain, Resend only delivers to your own Resend account email. For other inboxes, set up Gmail SMTP.'}
+                  {result?.failed ? ` Some sends failed${result?.lastError ? `: ${result.lastError}` : ''}.` : ''}
                 </p>
               </div>
             </div>
